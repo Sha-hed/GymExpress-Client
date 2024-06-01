@@ -1,0 +1,32 @@
+[
+    {
+        "image": "https://i.ibb.co/cyrK5Gt/Banner6.jpg",
+        "title": "High-Intensity Interval Training",
+        "description": "Join our HIIT classes to burn maximum calories in minimum time with expert trainers."
+    },
+    {
+        "image": "https://i.ibb.co/DrVqYcx/Banner2.jpg",
+        "title": "Seated Machine Row",
+        "description":"Discover the basics of strength training with our beginner-friendly seated machine row classes that focus on back muscle engagement and proper form."
+    },
+    {
+        "image": "https://i.ibb.co/fFFHbSn/Banner3.jpg",
+        "title": "Strength Training Basics",
+        "description": "Learn the fundamentals of strength training to build muscle and increase endurance in a safe environment."
+    },
+    {
+        "image": "https://i.ibb.co/RhSFzzh/Banner4.jpg",
+        "title": "Cardio Kickboxing",
+        "description": "Get your heart pumping with our high-energy cardio kickboxing classes designed to improve cardiovascular health."
+    },
+    {
+        "image": "https://i.ibb.co/0JL3gY2/Banner5.jpg",
+        "title": "Personal Training",
+        "description": "Achieve your fitness goals with personalized training plans tailored to your individual needs by our certified trainers."
+    },
+    {
+        "image": "https://i.ibb.co/p0WV53S/Banner1.jpg",
+        "title": "Nutritional Guidance",
+        "description": "Complement your workout routine with expert nutritional advice to maximize your health and fitness results."
+    }
+]

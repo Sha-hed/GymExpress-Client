@@ -1,13 +1,13 @@
-
+import logo from '../../assets/images/Logo.png'
 
 const Footer = () => {
     return (
         <div>
-            <footer className="footer footer-center p-5 bg-blue-400 text-primary-content">
+            <footer className="bg-gray-100 footer footer-center p-5 border shadow-xl my-5">
                 <aside>
                     <div className="avatar">
                         <div className="w-16 rounded-full">
-                            <img src='../../../public/Logo.png' alt="" />
+                            <img src={logo} alt="" />
                         </div>
                     </div>
                     <div>
@@ -15,7 +15,7 @@ const Footer = () => {
                     </div>
 
                     <p className="font-bold">
-                        Gymnesiam <br />Elevating Your Fitness Journey Since 2018
+                        FitnessClub <br />Elevating Your Fitness Journey Since 2018
                     </p>
                     <p>Copyright © 2024 - All right reserved</p>
                 </aside>
