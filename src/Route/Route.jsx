@@ -5,6 +5,8 @@ import AllTrainer from "../Pages/AllTrainer/AllTrainer";
 import AllClasses from "../Pages/AllClasses/AllClasses";
 import Community from "../Pages/Community/Community";
 import ErrorPage from "../Pages/ErrorElement/ErrorPage";
+import Register from "../Shared/Register/Register";
+import Login from "../Shared/Login/Login";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -26,6 +28,14 @@ export const router = createBrowserRouter([
           {
             path: 'community',
             element:<Community></Community>
+          },
+          {
+            path: '/register',
+            element: <Register></Register>
+          },
+          {
+            path: '/login',
+            element: <Login></Login>
           }
             
         ]
