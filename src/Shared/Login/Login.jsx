@@ -5,8 +5,11 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from "sweetalert2";
 import { useState } from "react";
 import useAuth from "../../Hooks/useAuth";
+import useAxiosCommon from "../../Hooks/useAxiosCommon";
 
 const Login = () => {
+    const { user } = useAuth();
+    const axiosCommon = useAxiosCommon();
     const [error, setError] = useState(null);
     const Toast = Swal.mixin({
         toast: true,
@@ -20,7 +23,7 @@ const Login = () => {
         }
     });
     const location = useLocation();
-    const go = location.state || '/';
+    const koiJava = location?.state?.from || '/'
     const navigate = useNavigate()
     const { login, google } = useAuth();
 
@@ -43,29 +46,36 @@ const Login = () => {
                     title: "Signed in successfully"
                 });
                 setTimeout(() => {
-                    navigate(go)
+                    navigate(koiJava)
                 }, 2500)
                 console.log(result.user)
             })
             .catch(error => {
                 setError(error.message);
-                console.log(error.messaged)})
+                console.log(error.messaged)
+            })
     }
     const googleLogin = () => {
         google()
-            .then(result => {
+            .then(async (result) => {
+                const name = result?.user?.displayName
+                const email = result?.user?.email;
+                const user = { name, email }
+                const { data } = await axiosCommon.post('/users', user)
+                console.log(data);
                 Toast.fire({
                     icon: "success",
                     title: "Signed in successfully"
                 });
                 setTimeout(() => {
-                    navigate(go)
+                    navigate(koiJava)
                 }, 2500)
                 console.log(result.user)
             })
             .catch(error => {
                 setError(error.message);
-                console.log(error.message)})
+                console.log(error.message)
+            })
     }
     return (
         <div className="max-w-6xl mx-auto my-10 p-2">
@@ -86,14 +96,18 @@ const Login = () => {
                             className='p-3 w-full border'
                             placeholder="Password"
                             {...register("Password", { required: true })} />
+                        <div className="flex justify-center items-center">
+                            <input className="w-1/2 text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" type="submit" value='Login' />
 
-                        <input className='btn btn-info w-full' type="submit" value='Login' />
+                        </div>
                     </form>
                     {
                         error && <p className="text-center text-xl mt-1 font-bold text-red-600">{error}</p>
                     }
-                    <button onClick={googleLogin} className='btn btn-info w-full my-3'><FcGoogle className="text-2xl" />Login With Google</button>
-                    <p className='text-xl font-semibold gap-0 text-center'>New to this Website ? Please <Link className=' text-xl btn btn-link' to='/register'>Register</Link></p>
+                    <div className="flex justify-center items-center">
+                    <button onClick={googleLogin} type="button" className="flex justify-center items-center gap-3 text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"><FcGoogle className="text-2xl" />Login With Google</button>
+                    </div>
+                    <p className='text-xl font-semibold gap-0 text-center'>New to this Website ? Please <Link className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" to='/register'>Register</Link></p>
                 </div>
             </div>
         </div>

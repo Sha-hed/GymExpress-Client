@@ -1,15 +1,19 @@
 import { useEffect, useState } from "react";
 import FeaturedCard from "../../../components/FeaturedCard";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosCommon from "../../../Hooks/useAxiosCommon";
 
 
 const Featured = () => {
-    const [feature, setFeature] = useState([])
-    useEffect(() => {
-        fetch('/Featured.json')
-            .then(res => res.json())
-            .then(data => setFeature(data))
-    }, [])
-    console.log(feature)
+    const axiosCommon = useAxiosCommon();
+    const { data: feature = [] } = useQuery({
+        queryKey: ['title'],
+        queryFn: async () => {
+            const { data } = await axiosCommon.get('/features')
+            return data;
+        }
+    })
+
     return (
         <div className="my-5">
             <h1 className="font-bold text-3xl text-center my-5">Our Featured</h1>
