@@ -22,10 +22,10 @@ const Demo = () => {
                     {/* Admin Part */}
                     {
                         isAdmin ? <>
-                            <div className="flex items-center gap-2 m-3">
+                            {/* <div className="flex items-center gap-2 m-3">
                                 <FaEarthAmericas className="text-xl" />
                                 <li><NavLink to='/demo/news'>NewsLetter Subscriber</NavLink></li>
-                            </div>
+                            </div> */}
                             <div className="flex items-center gap-2 mx-3 mb-3">
                                 <FaTrain className="text-xl" />
                                 <li><NavLink to='/demo/allT'>All Trainer</NavLink></li>
