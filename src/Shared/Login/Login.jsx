@@ -11,17 +11,17 @@ const Login = () => {
     const { user } = useAuth();
     const axiosCommon = useAxiosCommon();
     const [error, setError] = useState(null);
-    const Toast = Swal.mixin({
-        toast: true,
-        position: "top-end",
-        showConfirmButton: false,
-        timer: 2200,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-            toast.onmouseenter = Swal.stopTimer;
-            toast.onmouseleave = Swal.resumeTimer;
-        }
-    });
+    // const Toast = Swal.mixin({
+    //     toast: true,
+    //     position: "top-end",
+    //     showConfirmButton: false,
+    //     timer: 2200,
+    //     timerProgressBar: true,
+    //     didOpen: (toast) => {
+    //         toast.onmouseenter = Swal.stopTimer;
+    //         toast.onmouseleave = Swal.resumeTimer;
+    //     }
+    // });
     const location = useLocation();
     const koiJava = location?.state?.from || '/'
     const navigate = useNavigate()
