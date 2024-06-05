@@ -4,7 +4,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const NewsLetter = () => {
 
-    const axiosSecure = useAxiosSecure();
+    // const axiosSecure = useAxiosSecure();
     const { data } = useQuery({
         queryKey: ['subscriber'],
         queryFn: async () => {
