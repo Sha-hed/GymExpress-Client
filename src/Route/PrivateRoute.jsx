@@ -42,7 +42,7 @@ const PrivateRoute = ({ children }) => {
         <h1>Hello World</h1>
         return children;
     }
-    return <Navigate to='/login' state={{from: location.pathname}}></Navigate>
+    // return <Navigate to='/login' state={{from: location.pathname}}></Navigate>
 
 };
 
