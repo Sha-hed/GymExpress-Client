@@ -5,16 +5,16 @@ import Swal from "sweetalert2";
 import useAuth from "../../../Hooks/useAuth";
 
 const AllTrainers = () => {
-    // const { loading } = useAuth();
-    // const axiosSecure = useAxiosSecure();
-    // const { refetch, data: trainers = [] } = useQuery({
-    //     queryKey: ['trainer'],
-    //     enabled: !loading,
-    //     queryFn: async () => {
-    //         const { data } = await axiosSecure.get('/get-trainer')
-    //         return data;
-    //     }
-    // })
+    const { loading } = useAuth();
+    const axiosSecure = useAxiosSecure();
+    const { refetch, data: trainers = [] } = useQuery({
+        queryKey: ['trainer'],
+        enabled: !loading,
+        queryFn: async () => {
+            const { data } = await axiosSecure.get('/get-trainer')
+            return data;
+        }
+    })
     console.log(trainers);
 
     const handleDelete = (item) => {
