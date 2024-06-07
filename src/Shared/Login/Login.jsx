@@ -89,10 +89,12 @@ const Login = () => {
                     <form className='space-y-4' onSubmit={handleSubmit(onSubmit)}>
                         <label className='font-bold text-xl mb-3' htmlFor="">Email</label><br />
                         <input type="email" placeholder="Email"
+                        defaultValue={'shahed@gmail.com'}
                             className='p-3 w-full border'
                             {...register("Email", {})} />
                         <label className='font-bold text-xl mb-3' htmlFor="">Password</label><br />
                         <input type="password"
+                        defaultValue={'$Shahed'}
                             className='p-3 w-full border'
                             placeholder="Password"
                             {...register("Password", { required: true })} />

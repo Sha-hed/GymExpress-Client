@@ -4,7 +4,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const NewsLetter = () => {
 
-    // const axiosSecure = useAxiosSecure();
+    const axiosSecure = useAxiosSecure();
     const { data } = useQuery({
         queryKey: ['subscriber'],
         queryFn: async () => {
@@ -18,7 +18,7 @@ const NewsLetter = () => {
         <div>
             <h1 className="text-center font-bold underline text-2xl">NewsLetter Subscriber</h1>
             <div className={`w-full overflow-x-auto my-10`}>
-                <table className="w-full text-left border border-collapse rounded sm:border-separate border-slate-200" cellspacing="0">
+                <table className="w-full text-left border border-collapse rounded sm:border-separate border-slate-200">
                     <tbody>
                         <tr>
                             <th scope="col" className="h-12 px-6 text-sm font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-100">#</th>

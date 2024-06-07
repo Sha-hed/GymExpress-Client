@@ -1,12 +1,15 @@
-import { FaAd, FaBalanceScale, FaCalendar, FaComment, FaHome, FaList, FaNewspaper, FaShoppingCart, FaSubscript, FaTrailer, FaTrain, FaUser, FaUtensilSpoon } from "react-icons/fa";
-import { FaClapperboard, FaEarthAmericas } from "react-icons/fa6";
+import { FaBalanceScale, FaComment, FaForumbee, FaHome, FaNewspaper, FaRegComment, FaSplotch, FaTrailer, FaTrain } from "react-icons/fa";
+import { FaClapperboard, FaEarthAmericas, FaPersonRifle } from "react-icons/fa6";
 import { NavLink, Outlet } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
+import useAdmin from "../Hooks/useAdmin";
+import useTrainer from "../Hooks/useTrainer";
 
 
 const Demo = () => {
-    const isAdmin = true
     const { user } = useAuth();
+    const [isAdmin] = useAdmin();
+    const [isTrainer] = useTrainer();
     return (
         <div className="flex text-white">
             <div className="w-64 min-h-screen bg-[#374587]">
@@ -28,15 +31,15 @@ const Demo = () => {
                             </div>
                             <div className="flex items-center gap-2 mx-3 mb-3">
                                 <FaTrain className="text-xl" />
-                                <li><NavLink to='/demo/allT'>All Trainer</NavLink></li>
+                                <li><NavLink to='/demo/allTrainer'>All Trainer</NavLink></li>
                             </div>
                             <div className="flex items-center gap-2 mx-3 mb-3">
                                 <FaTrailer className="text-xl" />
-                                <li><NavLink to='/demo/at'>Applied Trainer</NavLink></li>
+                                <li><NavLink to='/demo/appliedTrainer'>Applied Trainer</NavLink></li>
                             </div>
                             <div className="flex items-center gap-2 mx-3 mb-3">
                                 <FaBalanceScale className="text-xl" />
-                                <li><NavLink to='/demo/users'>Balance</NavLink></li>
+                                <li><NavLink to='/demo/balance'>Balance</NavLink></li>
                             </div>
                             <div className="flex items-center gap-2 mx-3 mb-3">
                                 <FaNewspaper className="text-xl" />
@@ -44,16 +47,36 @@ const Demo = () => {
                             </div>
                             <div className="w-full mx-auto my-3 border divide-dotted"></div>
 
+                        </> : isTrainer ? <>
+                            <div className="flex items-center gap-2 m-3">
+                                <FaSplotch className="text-xl" />
+                                <li><NavLink to='/demo/ms'>Manage Slot</NavLink></li>
+                            </div>
+                            <div className="flex items-center gap-2 mx-3 mb-3">
+                                <FaSplotch className="text-xl" />
+                                <li><NavLink to='/demo/ans'>Add New Slot</NavLink></li>
+                            </div>
+                            <div className="flex items-center gap-2 mx-3 mb-3">
+                                <FaForumbee className="text-xl" />
+                                <li><NavLink to='/demo/anf'>Add New Forum</NavLink></li>
+                            </div>
+                            <div className="w-full mx-auto my-3 border divide-dotted"></div>
                         </> : <>
-
-                            <li><NavLink to='/dashboard/userHome'><FaHome />User Home</NavLink></li>
-                            <li><NavLink to='/dashboard/History'><FaCalendar />Payment History</NavLink></li>
-                            <li><NavLink to='/dashboard/cart'><FaShoppingCart /></NavLink></li>
-                            <li><NavLink to='/dashboard/review'><FaAd />Add a Review</NavLink></li>
-                            <li><NavLink to='/dashboard/paymentHistory'><FaList />Payment Real History</NavLink></li>
+                            <div className="flex items-center gap-2 m-3">
+                                <FaHome className="text-xl" />
+                                <li><NavLink to='/demo/activity'>Activity Log</NavLink></li>
+                            </div>
+                            <div className="flex items-center gap-2 mx-3 mb-3">
+                                <FaPersonRifle className="text-xl" />
+                                <li><NavLink to='/demo/profile'>Profile</NavLink></li>
+                            </div>
+                            <div className="flex items-center gap-2 mx-3 mb-3">
+                                <FaRegComment className="text-xl" />
+                                <li><NavLink to='/demo/recommended'>Recommended Class</NavLink></li>
+                            </div>
+                            <div className="w-full mx-auto my-3 border divide-dotted"></div>
                         </>
                     }
-
                     <div className="divider divider-neutral"></div>
                     {/* Common Part  */}
                     <div className="flex items-center gap-2 m-3">

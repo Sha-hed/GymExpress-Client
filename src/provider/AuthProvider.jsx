@@ -2,12 +2,11 @@ import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged,
 import { useEffect, useState } from "react";
 import { createContext } from "react";
 import auth from "../firebase/firebase.config";
+import useAxiosCommon from "../Hooks/useAxiosCommon";
 
 export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
-
-    const heda = { nam: 'shahed'}
-
+    const axiosCommon = useAxiosCommon();
     const [user, setUser] = useState('');
     const [loading, setLoading] = useState(true);
     const provider = new GoogleAuthProvider();
@@ -27,14 +26,28 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth, provider);
     }
     const logOut = () => {
+        setLoading(true)
         return signOut(auth)
     }
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
-            console.log(currentUser);
-            setLoading(false);
+            console.log(currentUser)
+            const user = { email: currentUser?.email }
+            if (currentUser) {
+                axiosCommon.post('/jwt', user)
+                    .then(res => {
+                        if (res.data.token) {
+                            localStorage.setItem('access-token', res.data.token)
+                            setLoading(false);
+                        }
+                    })
+                    .catch(error => console.log(error));
+            } else {
+                localStorage.removeItem('access-token')
+                setLoading(false);
+            }
         })
         return () => {
             unsubscribe();
@@ -42,7 +55,6 @@ const AuthProvider = ({ children }) => {
     }, [])
 
     const AuthInfo = {
-        heda,
         user,
         loading,
         google,

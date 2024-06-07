@@ -25,15 +25,16 @@ const Register = () => {
     const { createUser } = useAuth()
     const onSubmit = data => {
         const name = data.Name;
-        const photo = data.Photo;
+        const image = data.Photo;
         const email = data.Email;
+        const role = 'User'
         const password = data.Password;
-        const user = {name, email }
+        const user = { name, email, image, role }
         createUser(email, password)
             .then(() => {
                 updateProfile(auth.currentUser, {
                     displayName: name,
-                    photoURL: photo
+                    photoURL: image
                 }).then(async () => {
                     const { data } = await axiosCommon.post('/users', user)
                     console.log(data);
@@ -113,10 +114,11 @@ const Register = () => {
                         {
                             errors.Password && <p className='text-red-600 font-bold'>{errors.Password.message}</p>
                         }
-
-                        <input className='btn btn-accent w-full' type="submit" value='Register' />
+                        <div className='flex justify-center items-center'>
+                            <input className="w-1/2 flex justify-center items-center gap-3 text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" type="submit" value='Register' />
+                        </div>
                     </form>
-                    <p className='text-xl font-semibold gap-0 text-center'>Already Have an Account? Please <Link className=' text-xl btn btn-link' to='/login'>Login</Link></p>
+                    <p className='text-xl font-semibold gap-0 text-center'>Already Have an Account? Please <Link className=" text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" to='/login'>Login</Link></p>
                 </div>
             </div>
         </div>
