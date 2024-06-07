@@ -2,22 +2,22 @@
 
 const AddClasses = () => {
     
-    // const handleSubmit = e =>{
-    //     e.preventDefault();
-    //     const name = e.target.name.value;
-    //     const photo =e.target.image.value;
-    //     const des = e.target.des.value;
-    //     const t1 = e.target.t1.value
-    //     const t2 = e.target.t2.value
-    //     const t3 = e.target.t3.value
-    //     const t4 = e.target.t4.value
-    //     const t5 = e.target.t5.value
-    //     const emails = [t1,t2,t3,t4,t5];
-    //     const trainerEmail = emails.filter(email=> email !== '')
-    //     const addClass = {name, photo, des, trainerEmail};
-    //     console.log(addClass);
+    const handleSubmit = e =>{
+        e.preventDefault();
+        const name = e.target.name.value;
+        const photo =e.target.image.value;
+        const des = e.target.des.value;
+        const t1 = e.target.t1.value
+        const t2 = e.target.t2.value
+        const t3 = e.target.t3.value
+        const t4 = e.target.t4.value
+        const t5 = e.target.t5.value
+        const emails = [t1,t2,t3,t4,t5];
+        const trainerEmail = emails.filter(email=> email !== '')
+        const addClass = {name, photo, des, trainerEmail};
+        console.log(addClass);
 
-    // }
+    }
 
     return (
         <div>
