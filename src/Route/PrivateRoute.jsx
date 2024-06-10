@@ -9,6 +9,7 @@ const PrivateRoute = ({ children }) => {
 
     if (loading) {
         <>
+        <h1>Loading</h1>
             {/*<!-- Component: Basic xl sized 1/2 spinner  --> */}
             <svg
                 viewBox="0 0 24 24"

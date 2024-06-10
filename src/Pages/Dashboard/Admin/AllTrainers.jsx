@@ -3,18 +3,26 @@ import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAuth from "../../../Hooks/useAuth";
+import { useEffect, useState } from "react";
 
 const AllTrainers = () => {
-    const { loading } = useAuth();
     const axiosSecure = useAxiosSecure();
-    const { refetch, data: trainers = [] } = useQuery({
-        queryKey: ['trainer'],
-        enabled: !loading,
-        queryFn: async () => {
-            const { data } = await axiosSecure.get('/get-trainer')
-            return data;
-        }
-    })
+    const [trainers, setTrainers] = useState([])
+    // const { refetch, data: trainers = [] } = useQuery({
+    //     queryKey: ['trainer'],
+    //     enabled: !loading,
+    //     queryFn: async () => {
+    //         const { data } = await axiosSecure.get('/get-trainer')
+    //         return data;
+    //     }
+    // })
+
+    useEffect(() => {
+        fetch(' https://assignment-12-mu.vercel.app/get-trainer')
+            .then(res => res.json())
+            .then(data => setTrainers(data))
+    }, [])
+
     console.log(trainers);
 
     const handleDelete = (item) => {
@@ -37,7 +45,9 @@ const AllTrainers = () => {
                             text: "Trainer has been deleted.",
                             icon: "success"
                         });
-                        refetch();
+                        // refetch();
+                        const newTrainer = trainers.filter(train => train._id !== item._id)
+                        setTrainers(newTrainer)
                     }
                 }
             }

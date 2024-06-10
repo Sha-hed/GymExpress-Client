@@ -7,7 +7,6 @@ import ErrorPage from "../Pages/ErrorElement/ErrorPage";
 import Register from "../Shared/Register/Register";
 import Login from "../Shared/Login/Login";
 import PrivateRoute from '../Route/PrivateRoute'
-import BeATrainer from "../Pages/AllTrainer/BeATrainer";
 import Demo from "../Layout/Demo";
 import NewsLetter from "../Pages/Dashboard/Admin/NewsLetter";
 import AllTrainers from "../Pages/Dashboard/Admin/AllTrainers";
@@ -19,9 +18,16 @@ import AddNewForum from "../Pages/Dashboard/Trainer/AddNewForum";
 import Activity from '../Pages/Dashboard/User/ActivityLogPage';
 import ProfilePage from '../Pages/Dashboard/User/ProfilePage';
 import Recommended from '../Pages/Dashboard/User/Recommended';
-// import AdminRoute from '../Route/AdminRoute';
+import AdminRoute from '../Route/AdminRoute';
 import TrainerRoute from '../Route/TrainerRoute';
 import AppliedTrainer from "../Pages/Dashboard/Admin/AppliedTrainer";
+import Trainers from "../Pages/AllTrainer/Trainers";
+import TrainerDetails from "../Pages/AllTrainer/TrainerDetails";
+import BeATrainer from '../Pages/AllTrainer/BeATrainer';
+import TrainerBookedPage from "../Pages/AllTrainer/TrainerBookedPage";
+import Payment from "../Pages/Payment/Payment";
+import ForumDetails from "../Pages/Community/ForumDetails";
+import BookTrainer from "../Pages/Dashboard/User/BookTrainer";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -34,7 +40,16 @@ export const router = createBrowserRouter([
       },
       {
         path: '/allTrainer',
-        element: <BeATrainer></BeATrainer>
+        element: <Trainers></Trainers>
+      },
+      {
+        path: '/details/:id',
+        element: <TrainerDetails></TrainerDetails>,
+        loader: ({ params }) => fetch(` https://assignment-12-mu.vercel.app/trainers/${params.id}`)
+      },
+      {
+        path: '/becomeGymTrainer',
+        element: <PrivateRoute><BeATrainer></BeATrainer></PrivateRoute>
       },
       {
         path: '/allClasses',
@@ -42,7 +57,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/community',
-        element: <PrivateRoute><Community></Community></PrivateRoute>
+        element: <Community></Community>
       },
       {
         path: '/register',
@@ -51,7 +66,21 @@ export const router = createBrowserRouter([
       {
         path: '/login',
         element: <Login></Login>
-      }
+      },
+      {
+        path: '/trainerBookedPage/:id',
+        element: <PrivateRoute><TrainerBookedPage></TrainerBookedPage></PrivateRoute>,
+        loader: ({ params }) => fetch(` https://assignment-12-mu.vercel.app/trainers/${params.id}`)
+      },
+      {
+        path: '/forumDetails/:id',
+        element: <PrivateRoute><ForumDetails></ForumDetails></PrivateRoute>,
+        loader: ({ params }) => fetch(` https://assignment-12-mu.vercel.app/forum/${params.id}`)
+      },
+      {
+        path: '/payment',
+        element: <Payment></Payment>
+      },
     ]
   },
   {
@@ -64,19 +93,19 @@ export const router = createBrowserRouter([
       },
       {
         path: 'news',
-        element: <NewsLetter></NewsLetter>
+        element: <AdminRoute><NewsLetter></NewsLetter></AdminRoute>
       },
       {
         path: 'allTrainer',
-        element: <AllTrainers></AllTrainers>
+        element: <AdminRoute><AllTrainers></AllTrainers></AdminRoute>
       },
       {
         path: 'class',
-        element: <AddClasses></AddClasses>
+        element: <AdminRoute><AddClasses></AddClasses></AdminRoute>
       },
       {
         path: 'balance',
-        element:<Balance></Balance>
+        element: <AdminRoute><Balance></Balance></AdminRoute>
       },
       {
         path: 'ms',
@@ -87,8 +116,8 @@ export const router = createBrowserRouter([
         element: <TrainerRoute><AddNewSlot></AddNewSlot></TrainerRoute>
       },
       {
-        path: 'anf',
-        element: <TrainerRoute><AddNewForum></AddNewForum></TrainerRoute>
+        path: 'forum',
+        element: <AddNewForum></AddNewForum>
       },
       {
         path: 'activity',
@@ -100,7 +129,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'recommended',
-        element: <PrivateRoute><Recommended></Recommended></PrivateRoute>
+        element: <PrivateRoute><BookTrainer></BookTrainer></PrivateRoute>
 
       }
     ]

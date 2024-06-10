@@ -45,6 +45,10 @@ const Demo = () => {
                                 <FaNewspaper className="text-xl" />
                                 <li><NavLink to='/demo/class'>Add New Class</NavLink></li>
                             </div>
+                            <div className="flex items-center gap-2 mx-3 mb-3">
+                                <FaForumbee className="text-xl" />
+                                <li><NavLink to='/demo/forum'>Add New Forum</NavLink></li>
+                            </div>
                             <div className="w-full mx-auto my-3 border divide-dotted"></div>
 
                         </> : isTrainer ? <>
@@ -58,7 +62,7 @@ const Demo = () => {
                             </div>
                             <div className="flex items-center gap-2 mx-3 mb-3">
                                 <FaForumbee className="text-xl" />
-                                <li><NavLink to='/demo/anf'>Add New Forum</NavLink></li>
+                                <li><NavLink to='/demo/forum'>Add New Forum</NavLink></li>
                             </div>
                             <div className="w-full mx-auto my-3 border divide-dotted"></div>
                         </> : <>
@@ -72,7 +76,7 @@ const Demo = () => {
                             </div>
                             <div className="flex items-center gap-2 mx-3 mb-3">
                                 <FaRegComment className="text-xl" />
-                                <li><NavLink to='/demo/recommended'>Recommended Class</NavLink></li>
+                                <li><NavLink to='/demo/recommended'>Booked Trainer</NavLink></li>
                             </div>
                             <div className="w-full mx-auto my-3 border divide-dotted"></div>
                         </>

@@ -2,8 +2,9 @@ import useAuth from "../../Hooks/useAuth";
 import { useState } from 'react';
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
-import useAxiosCommon from "../../Hooks/useAxiosCommon";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { useNavigate } from "react-router-dom";
 
 const animatedComponents = makeAnimated();
 
@@ -17,7 +18,8 @@ const options = [
     { value: 'Friday', label: 'Friday' }
 ];
 const BeATrainer = () => {
-    const axiosCommon = useAxiosCommon();
+    const navigate = useNavigate();
+    const axiosSecure = useAxiosSecure();
     const { user } = useAuth()
     const [selectedOptions, setSelectedOptions] = useState([]);
 
@@ -55,7 +57,7 @@ const BeATrainer = () => {
             .filter(skill => skill !== null);
         const user = { name, email, age, photo, days, time, selectedSkill, experience, status, des };
         console.log(user);
-        const { data } = await axiosCommon.post('/appliedTrainer',user);
+        const { data } = await axiosSecure.post('/appliedTrainer', user);
         if (data.insertedId) {
             Swal.fire({
                 position: "top",
@@ -64,6 +66,7 @@ const BeATrainer = () => {
                 showConfirmButton: false,
                 timer: 1500
             });
+            navigate('/demo')
         }
     }
 
