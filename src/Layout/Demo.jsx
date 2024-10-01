@@ -89,7 +89,7 @@ const Demo = () => {
                     </div>
                     <div className="flex items-center gap-2 mx-3 mb-3">
                         <FaTrain className="text-xl" />
-                        <li><NavLink to='/allTrainer/'>Trainer</NavLink></li>
+                        <li><NavLink to='/allTrainer'>Trainer</NavLink></li>
                     </div>
                     <div className="flex items-center gap-2 mx-3 mb-3">
                         <FaClapperboard className="text-xl" />

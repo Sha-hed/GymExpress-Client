@@ -27,7 +27,7 @@ const AppliedTrainer = () => {
     //     }
     // })
     useEffect(() => {
-        fetch(' https://assignment-12-mu.vercel.app/appliedTrainer')
+        fetch(' http://localhost:5000/appliedTrainer')
             .then(res => res.json())
             .then(data => setAppliedTrainer(data));
     }, [])

@@ -18,7 +18,7 @@ const AllTrainers = () => {
     // })
 
     useEffect(() => {
-        fetch(' https://assignment-12-mu.vercel.app/get-trainer')
+        fetch(' http://localhost:5000/get-trainer')
             .then(res => res.json())
             .then(data => setTrainers(data))
     }, [])

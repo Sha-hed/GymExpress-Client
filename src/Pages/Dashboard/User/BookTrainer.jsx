@@ -13,7 +13,7 @@ const BookTrainer = () => {
     const [book, setBook] = useState([])
     const [handleReview, setHandleReview] = useState(false)
     useEffect(() => {
-        fetch(` https://assignment-12-mu.vercel.app/byUserEmail/${user?.email}`)
+        fetch(` http://localhost:5000/byUserEmail/${user?.email}`)
             .then(res => res.json())
             .then(data => setBook(data))
     }, [])
@@ -22,7 +22,7 @@ const BookTrainer = () => {
         e.preventDefault();
         const review = e.target.review.value;
         const reviews = { review, rating }
-        fetch(' https://assignment-12-mu.vercel.app/add-review', {
+        fetch(' http://localhost:5000/add-review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

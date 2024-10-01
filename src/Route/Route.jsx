@@ -45,7 +45,7 @@ export const router = createBrowserRouter([
       {
         path: '/details/:id',
         element: <TrainerDetails></TrainerDetails>,
-        loader: ({ params }) => fetch(` https://assignment-12-mu.vercel.app/trainers/${params.id}`)
+        loader: ({ params }) => fetch(` http://localhost:5000/trainers/${params.id}`)
       },
       {
         path: '/becomeGymTrainer',
@@ -70,12 +70,12 @@ export const router = createBrowserRouter([
       {
         path: '/trainerBookedPage/:id',
         element: <PrivateRoute><TrainerBookedPage></TrainerBookedPage></PrivateRoute>,
-        loader: ({ params }) => fetch(` https://assignment-12-mu.vercel.app/trainers/${params.id}`)
+        loader: ({ params }) => fetch(` http://localhost:5000/trainers/${params.id}`)
       },
       {
         path: '/forumDetails/:id',
         element: <PrivateRoute><ForumDetails></ForumDetails></PrivateRoute>,
-        loader: ({ params }) => fetch(` https://assignment-12-mu.vercel.app/forum/${params.id}`)
+        loader: ({ params }) => fetch(` http://localhost:5000/forum/${params.id}`)
       },
       {
         path: '/payment',

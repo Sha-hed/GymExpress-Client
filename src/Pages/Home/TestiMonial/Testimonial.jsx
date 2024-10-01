@@ -1,9 +1,13 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { FreeMode, Pagination } from 'swiper/modules';
+import { Pagination, Navigation } from 'swiper/modules';
+
+//CSS For Swiper 
 import 'swiper/css';
-import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
+
 import useAxiosCommon from '../../../Hooks/useAxiosCommon';
 import { useQuery } from '@tanstack/react-query';
 import ReviewCard from '../../../components/ReviewCard';
@@ -18,22 +22,23 @@ const Testimonial = () => {
     })
     return (
         <>
-            <h1 className='text-center underline font-bold text-3xl mt-10'>Reviews</h1>
-            <div className='my-5'>
+            <h1 className='text-center underline font-bold text-3xl'>Reviews</h1>
+            <div className='mb-5'>
                 <Swiper
-                    loop={true}
-                    slidesPerView={3}
-                    spaceBetween={30}
-                    freeMode={true}
-                    pagination={{
-                        clickable: true,
-                    }}
-                    modules={[FreeMode, Pagination]}
-                    className="mySwiper"
+                   slidesPerView={1}
+                   spaceBetween={30}
+                   loop={true}
+                   pagination={{
+                     clickable: true,
+                   }}
+                   navigation={true}
+                   modules={[Pagination, Navigation]}
+                   className=""
                 >
                     {
                         reviews?.map(review =>
-                            <SwiperSlide key={review._id}>
+                            <SwiperSlide key={review._id}
+                            >
                                 <ReviewCard review={review}></ReviewCard>
                             </SwiperSlide>)
                     }

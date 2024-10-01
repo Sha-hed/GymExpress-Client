@@ -54,7 +54,7 @@ const ManageSlot = () => {
                 <tbody>
                     <tr>
                         <th scope="col" className="h-12 px-6 text-sm font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-100">#</th>
-                        <th scope="col" className="h-12 px-6 text-sm font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-100">TrainerName</th>
+                        <th scope="col" className="h-12 px-6 text-sm font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-100">userName</th>
                         <th scope="col" className="h-12 px-6 text-sm font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-100">SelectedClass</th>
                         <th scope="col" className="h-12 px-6 text-sm font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-100">Slot</th>
                         <th scope="col" className="h-12 px-6 text-sm font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-100">Price</th>
@@ -66,7 +66,7 @@ const ManageSlot = () => {
                             <td>{m?.userName}</td>
                             <td>{m?.selectedClass}</td>
                             <td>{m?.slot}</td>
-                            <td>{m?.price}</td>
+                            <td>${m?.price}</td>
                             <td className="text-center"><button onClick={() => handleDelete(m._id)}><FaTrashAlt className="text-red-400 text-xl text-center"></FaTrashAlt></button></td>
                         </tr>)
                     }
