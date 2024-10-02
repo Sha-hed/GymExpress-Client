@@ -28,6 +28,7 @@ import TrainerBookedPage from "../Pages/AllTrainer/TrainerBookedPage";
 import Payment from "../Pages/Payment/Payment";
 import ForumDetails from "../Pages/Community/ForumDetails";
 import BookTrainer from "../Pages/Dashboard/User/BookTrainer";
+import SignIn from "../Shared/Login/SignIn";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -66,6 +67,10 @@ export const router = createBrowserRouter([
       {
         path: '/login',
         element: <Login></Login>
+      },
+      {
+        path: '/signin',
+        element: <SignIn/>
       },
       {
         path: '/trainerBookedPage/:id',

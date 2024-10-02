@@ -2,23 +2,36 @@ import { MdOutlineForwardToInbox } from "react-icons/md";
 import { MdDriveFileRenameOutline } from "react-icons/md";
 import GymLogo from '../../../assets/images2/GymLogo.png'
 import { Link } from "react-router-dom";
+import useAxiosGeneral from "../../../Hooks/useAxiosGeneral";
+import Swal from "sweetalert2";
 const Letter = () => {
 
+  const axiosGeneral = useAxiosGeneral();
 
-  const handleSub = async() =>{
+
+  const handleSub = async () => {
     const checkbox = document.querySelector('#checkbox')
     const ema = document.querySelector('#ema')
     const nam = document.querySelector('#nam')
-    if(checkbox.checked && ema.value && nam.value){
-      console.log("Authorized User")
-    }else{
+    if (checkbox.checked && ema.value && nam.value) {
+      const user = { name: nam.value, email: ema.value }
+      const { data } = await axiosGeneral.post('/newsletter', user);
+      console.log(data)
+      if (data.result.insertedId) {
+          Swal.fire({
+            color: '#008000,',
+            position: "top",
+            icon: "success",
+            title: "Thank You for Subscribing!",
+            showConfirmButton: false,
+            timer: 1500
+          });
+      }
+    } else {
       console.log('Unauthorized User')
+      return;
     }
-    
-  }
-
-
-
+}
   return (
     <div className="bg-[#1E1E1E] py-16 text-white">
       <div className="flex justify-between mx-20 mb-5">

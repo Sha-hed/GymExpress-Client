@@ -18,7 +18,7 @@ const WeOffer = () => {
         <div
           className="relative w-[320px] h-[300px] flex flex-col justify-center items-center p-5 space-y-3
         hover:scale-105 cursor-pointer hover:bg-[#008B8B] hover:rounded-lg
-        transition duration-500 group"
+        transition duration-100 group"
         >
           {/* <Image
             className=""
@@ -42,7 +42,7 @@ const WeOffer = () => {
         <div
           className="relative w-[320px] h-[300px] flex flex-col justify-center items-center p-5 space-y-3
          hover:bg-[#008B8B] hover:scale-105 hover:rounded-lg cursor-pointer
-        transition duration-500 group"
+        transition duration-100 group"
         >
           {/* <Image
             className=""
@@ -66,7 +66,7 @@ const WeOffer = () => {
         <div
           className="relative w-[320px] h-[300px] flex flex-col justify-center items-center p-5 space-y-3
         hover:bg-[#008B8B] hover:scale-105 hover:rounded-lg cursor-pointer
-        transition duration-500 group"
+        transition duration-100 group"
         >
           {/* <Image
             className=""
@@ -90,7 +90,7 @@ const WeOffer = () => {
         <div
           className="relative w-[320px] h-[300px] flex flex-col justify-center items-center p-5 space-y-3
          hover:bg-[#008B8B] hover:scale-105 hover:rounded-lg cursor-pointer
-        transition duration-500 group"
+        transition duration-100 group"
         >
           {/* <Image
             className=""

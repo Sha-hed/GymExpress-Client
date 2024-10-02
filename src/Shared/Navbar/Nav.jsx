@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
 
 const navLinks = [
     {
@@ -23,7 +24,7 @@ const navLinks = [
 
 const Nav = () => {
     const [showNavbar, setShowNavbar] = useState(false);
-    // const { user } = useAuth();
+    const { user} = useAuth();
     const location = useLocation();
 
     const handleScroll = () => {
@@ -58,11 +59,11 @@ const Nav = () => {
                             {title}
                         </Link>
                     ))}
-                    {/* {user ? (
-                        <Link href={"/dashboard"}>Dashboard</Link>
+                    {user ? (
+                        <Link to='/demo'>Dashboard</Link>
                     ) : (
-                        <button onClick={() => handler()}>Login</button>
-                    )} */}
+                        <Link to='/signin'>Login</Link>
+                    )}
                 </div>
             </div>
             <div className={`fixed z-10 top-0 left-0 w-full flex justify-between md:px-32 py-5 bg-black opacity-75 transition-transform duration-500 ${showNavbar ? "translate-y-0" : "-translate-y-full"} text-white text-lg`}>
@@ -82,6 +83,11 @@ const Nav = () => {
                             {title}
                         </Link>
                     ))}
+                    {user ? (
+                        <Link to='/demo'>Dashboard</Link>
+                    ) : (
+                        <Link to='/signin'>Login</Link>
+                    )}
                 </div>
             </div>
         </div>
