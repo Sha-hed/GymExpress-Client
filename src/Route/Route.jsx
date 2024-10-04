@@ -22,13 +22,15 @@ import AdminRoute from '../Route/AdminRoute';
 import TrainerRoute from '../Route/TrainerRoute';
 import AppliedTrainer from "../Pages/Dashboard/Admin/AppliedTrainer";
 import Trainers from "../Pages/AllTrainer/Trainers";
-import TrainerDetails from "../Pages/AllTrainer/TrainerDetails";
+// import TrainerDetails from "../Pages/AllTrainer/TrainerDetails";
 import BeATrainer from '../Pages/AllTrainer/BeATrainer';
 import TrainerBookedPage from "../Pages/AllTrainer/TrainerBookedPage";
 import Payment from "../Pages/Payment/Payment";
 import ForumDetails from "../Pages/Community/ForumDetails";
 import BookTrainer from "../Pages/Dashboard/User/BookTrainer";
 import SignIn from "../Shared/Login/SignIn";
+import ClassDetails from "../components/ClassDetails";
+import TrainerDetail from "../components/TrainerDetail";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -40,12 +42,23 @@ export const router = createBrowserRouter([
         element: <Home></Home>
       },
       {
+        path: '/getSingleClass/:id',
+        element: <ClassDetails/>,
+        loader: ({params})=> fetch(`http://localhost:5000/getClass/${params.id}`)
+
+      },
+      {
+        path: '/getTrainer/:id',
+        element: <TrainerDetail/>,
+        loader: ({params})=> fetch(`http://localhost:5000/getTrainer/${params.id}`)
+      },
+      {
         path: '/allTrainer',
         element: <Trainers></Trainers>
       },
       {
         path: '/details/:id',
-        element: <TrainerDetails></TrainerDetails>,
+        element: <TrainerDetail></TrainerDetail>,
         loader: ({ params }) => fetch(` http://localhost:5000/trainers/${params.id}`)
       },
       {
@@ -70,7 +83,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/signin',
-        element: <SignIn/>
+        element: <SignIn />
       },
       {
         path: '/trainerBookedPage/:id',
@@ -90,7 +103,7 @@ export const router = createBrowserRouter([
   },
   {
     path: 'demo',
-    element: <Demo></Demo>,
+    element: <PrivateRoute><Demo></Demo></PrivateRoute>,
     children: [
       {
         path: 'appliedTrainer',

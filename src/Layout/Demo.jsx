@@ -6,14 +6,17 @@ import useAdmin from "../Hooks/useAdmin";
 import useTrainer from "../Hooks/useTrainer";
 import { RiLogoutBoxFill } from "react-icons/ri";
 import toast from "react-hot-toast";
+import IsAdmin from "../Hooks/IsAdmin";
+import IsTrainer from "../Hooks/IsTrainer";
 
 
 const Demo = () => {
     const { user, logOut } = useAuth();
-    const [isAdmin] = useAdmin();
-    const [isTrainer] = useTrainer();
+    // const [isAdmin] = useAdmin();
+    const [isAdmin, isLoading] = IsAdmin();
+    const [isTrainer, isLoadingTrainer ] = IsTrainer();
     const navigate = useNavigate()
-
+    console.log('Trainer Checking Man ', isTrainer)
     const handleLogOut = () => {
         logOut()
             .then(() => {
@@ -26,7 +29,7 @@ const Demo = () => {
     return (
         <div className="bg-[#1E1E1E]">
             <div className="max-w-7xl mx-auto flex text-white relative">
-                <div className="w-64 min-h-screen bg-[#333333]">
+                <div className="w-[300px] min-h-screen bg-[#333333]">
                     <ul>
                         <div className="flex flex-col justify-center items-center mt-10">
                             <div className="w-20 rounded-full">
@@ -61,7 +64,7 @@ const Demo = () => {
                                 </div>
                                 <div className="flex items-center gap-2 mx-3 mb-3">
                                     <FaForumbee className="text-xl" />
-                                    <li><NavLink to='/demo/forum'>Add New Forum</NavLink></li>
+                                    <li><NavLink to='/demo/forum'>Add New Blog</NavLink></li>
                                 </div>
                                 <div className="w-full mx-auto my-3 border divide-dotted"></div>
 
@@ -76,7 +79,7 @@ const Demo = () => {
                                 </div>
                                 <div className="flex items-center gap-2 mx-3 mb-3">
                                     <FaForumbee className="text-xl" />
-                                    <li><NavLink to='/demo/forum'>Add New Forum</NavLink></li>
+                                    <li><NavLink to='/demo/forum'>Add New Blog</NavLink></li>
                                 </div>
                                 <div className="w-full mx-auto my-3 border divide-dotted"></div>
                             </> : <>
@@ -119,7 +122,7 @@ const Demo = () => {
                         <button onClick={handleLogOut} className="text-lg font-semibold hover:underline">LogOut</button>
                     </div>
                 </div>
-                <div className="flex-1 p-8 bg-gray-200 text-black">
+                <div className="w-[1000px] p-8 bg-gray-200 text-black">
                     <Outlet></Outlet>
                 </div>
             </div>

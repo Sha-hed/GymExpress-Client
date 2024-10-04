@@ -1,9 +1,18 @@
 import { useState } from 'react';
 import apply from '../../../assets/images2/john.jpg'
-import { Link} from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
+import useAuth from '../../../Hooks/useAuth';
 
 const BeaTrainer = () => {
     const [openModal, setOpenModal] = useState(false);
+    const { user } = useAuth()
+    const navigate = useNavigate()
+    const applyTrainer = () =>{
+        if(user){
+            navigate('/becomeGymTrainer')
+        }
+        setOpenModal(true)
+    }
     return (
         <>
             <div className="mx-auto flex w-72 items-center justify-center">
@@ -34,7 +43,7 @@ const BeaTrainer = () => {
                 <div className='w-[400px] absolute top-[40%] right-[250px]'>
                     <p className='text-xl'>Interested in becoming a gym instructor? Join our team and help others achieve their fitness goals! We're looking for passionate individuals who are ready to inspire and lead. Whether you're an experienced trainer or just starting out, apply today and be part of a motivating and supportive fitness community!</p>
                     <div className="flex justify-center">
-                        <button onClick={() => setOpenModal(true)} type="button" className="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 my-10 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">Apply to Be a Gym Instructor</button>
+                        <button onClick={applyTrainer} type="button" className="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 my-10 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">Apply to Be a Gym Instructor</button>
                     </div>
                 </div>
             </div>

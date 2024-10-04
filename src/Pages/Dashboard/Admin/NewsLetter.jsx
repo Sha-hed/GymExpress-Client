@@ -1,14 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import useAxiosPrivate from "../../../Hooks/useAxiosPrivate";
 
 
 const NewsLetter = () => {
 
-    const axiosSecure = useAxiosSecure();
+    const axiosPrivate = useAxiosPrivate();
     const { data } = useQuery({
         queryKey: ['subscriber'],
         queryFn: async () => {
-            const { data } = await axiosSecure.get('/newsLetter')
+            const { data } = await axiosPrivate.get('/newsLetter')
             return data;
         }
     })

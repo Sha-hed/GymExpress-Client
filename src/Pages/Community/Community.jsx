@@ -41,7 +41,7 @@ const Community = () => {
     }
 
     return (
-        <>
+        <div className="min-h-screen">
             <h1 className="text-3xl font-bold uppercase underline text-center my-10">All Forums</h1>
             <div className="max-w-5xl mx-auto grid grid-cols-1 gap-5 my-10">
                 {
@@ -60,7 +60,7 @@ const Community = () => {
                 }
                 <button onClick={handleNext} className="p-3 bg-gray-300 ml-5 rounded-xl">Next</button>
             </div>
-        </>
+        </div>
 
     );
 };

@@ -1,12 +1,13 @@
 import { Navigate } from "react-router-dom";
-import useAdmin from "../Hooks/useAdmin";
 import useAuth from "../Hooks/useAuth";
+import IsAdmin from "../Hooks/IsAdmin";
 
 
 const AdminRoute = ({ children }) => {
     const { user, loading } = useAuth();
-    const [isAdmin, isAdminLoading] = useAdmin();
-    if (loading || isAdminLoading) {
+    // const [isAdmin, isAdminLoading] = useAdmin();
+    const [isAdmin, isLoading ] = IsAdmin()
+    if (loading || isLoading) {
         return <div className="text-center">
             <div role="status">
                 <svg aria-hidden="true" className="inline w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
