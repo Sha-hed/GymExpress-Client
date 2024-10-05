@@ -1,7 +1,7 @@
 import useAuth from "../../../Hooks/useAuth";
 
 
-const AddNewSlot = () => {
+const MyProfile = () => {
     const { user }  = useAuth()
     return (
         <div>
@@ -21,4 +21,4 @@ const AddNewSlot = () => {
     );
 };
 
-export default AddNewSlot;
+export default MyProfile;

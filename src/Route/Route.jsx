@@ -11,10 +11,6 @@ import Demo from "../Layout/Demo";
 import NewsLetter from "../Pages/Dashboard/Admin/NewsLetter";
 import AllTrainers from "../Pages/Dashboard/Admin/AllTrainers";
 import AddClasses from "../Pages/Dashboard/Admin/AddClasses";
-import Balance from "../Pages/Dashboard/Admin/Balance";
-import ManageSlot from "../Pages/Dashboard/Trainer/ManageSlot";
-import AddNewSlot from "../Pages/Dashboard/Trainer/AddNewSlot";
-import AddNewForum from "../Pages/Dashboard/Trainer/AddNewForum";
 import Activity from '../Pages/Dashboard/User/ActivityLogPage';
 import ProfilePage from '../Pages/Dashboard/User/ProfilePage';
 import AdminRoute from '../Route/AdminRoute';
@@ -32,6 +28,9 @@ import ClassDetails from "../components/ClassDetails";
 import TrainerDetail from "../components/TrainerDetail";
 import ReviewYourBooking from "../components/ReviewYourBooking";
 import Blogs from "../Pages/Blog/Blogs";
+import AddNewBlog from "../Pages/Dashboard/Trainer/AddNewBlog";
+import BookedClasses from "../Pages/Dashboard/Trainer/BookedClasses";
+import MyProfile from "../Pages/Dashboard/Trainer/MyProfile";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -44,22 +43,22 @@ export const router = createBrowserRouter([
       },
       {
         path: '/reviewBooking',
-        element: <ReviewYourBooking/>
+        element: <ReviewYourBooking />
       },
       {
         path: '/blogs',
-        element: <Blogs/>
+        element: <Blogs />
       },
       {
         path: '/getSingleClass/:id',
-        element: <ClassDetails/>,
-        loader: ({params})=> fetch(`http://localhost:5000/getClass/${params.id}`)
+        element: <ClassDetails />,
+        loader: ({ params }) => fetch(`http://localhost:5000/getClass/${params.id}`)
 
       },
       {
         path: '/getTrainer/:id',
-        element: <TrainerDetail/>,
-        loader: ({params})=> fetch(`http://localhost:5000/getTrainer/${params.id}`)
+        element: <TrainerDetail />,
+        loader: ({ params }) => fetch(`http://localhost:5000/getTrainer/${params.id}`)
       },
       {
         path: '/allTrainer',
@@ -115,7 +114,7 @@ export const router = createBrowserRouter([
     element: <PrivateRoute><Demo></Demo></PrivateRoute>,
     children: [
       {
-        index:true,
+        index: true,
         element: <AdminRoute><AllTrainers></AllTrainers></AdminRoute>
       },
       {
@@ -135,27 +134,23 @@ export const router = createBrowserRouter([
         element: <AdminRoute><AddClasses></AddClasses></AdminRoute>
       },
       {
-        path: 'balance',
-        element: <AdminRoute><Balance></Balance></AdminRoute>
+        path: 'manageClasses',
+        element: <TrainerRoute><BookedClasses></BookedClasses></TrainerRoute>
       },
       {
-        path: 'ms',
-        element: <TrainerRoute><ManageSlot></ManageSlot></TrainerRoute>
+        path: 'addNewBlog',
+        element: <AddNewBlog></AddNewBlog>
       },
       {
-        path: 'ans',
-        element: <TrainerRoute><AddNewSlot></AddNewSlot></TrainerRoute>
-      },
-      {
-        path: 'forum',
-        element: <AddNewForum></AddNewForum>
+        path: 'myProfile',
+        element: <MyProfile />
       },
       {
         path: 'activity',
         element: <PrivateRoute><Activity></Activity></PrivateRoute>
       },
       {
-        index:true,
+        index: true,
         element: <PrivateRoute><ProfilePage></ProfilePage></PrivateRoute>
       },
       {

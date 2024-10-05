@@ -10,7 +10,7 @@ import useAxiosPrivate from "../../../Hooks/useAxiosPrivate";
 import MyTrainer from '../../../components/MyTrainer'
 
 
-const ManageSlot = () => {
+const BookedClasses = () => {
 
     const { user } = useAuth()
     const axiosPrivate = useAxiosPrivate();
@@ -62,4 +62,4 @@ const ManageSlot = () => {
     );
 };
 
-export default ManageSlot;
+export default BookedClasses;

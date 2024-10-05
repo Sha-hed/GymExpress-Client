@@ -69,7 +69,7 @@ const Demo = () => {
                                 </div>
                                 <div className="flex items-center gap-2 mx-3 mb-3">
                                     <MdLibraryAddCheck className="text-xl" />
-                                    <li><NavLink to='/demo/forum'>Add New Blog</NavLink></li>
+                                    <li><NavLink to='/demo/addNewBlog'>Add New Blog</NavLink></li>
                                 </div>
                                     <div className="flex items-center gap-2 m-3">
                                         <IoNewspaperOutline className="text-xl" />
@@ -80,15 +80,15 @@ const Demo = () => {
                             </> : isTrainer ? <>
                                 <div className="flex items-center gap-2 mx-3 mb-3">
                                     <CgProfile className="text-xl" />
-                                    <li><NavLink to='/demo/ans'>Profile</NavLink></li>
+                                    <li><NavLink to='/demo/myProfile'>Profile</NavLink></li>
                                 </div>
                                 <div className="flex items-center gap-2 m-3">
                                     <MdManageAccounts className="text-xl" />
-                                    <li><NavLink to='/demo/ms'>Manage Classes</NavLink></li>
+                                    <li><NavLink to='/demo/manageClasses'>Manage Classes</NavLink></li>
                                 </div>
                                 <div className="flex items-center gap-2 mx-3 mb-3">
                                     <MdAddToPhotos className="text-xl" />
-                                    <li><NavLink to='/demo/forum'>Add New Blog</NavLink></li>
+                                    <li><NavLink to='/demo/addNewBlog'>Add New Blog</NavLink></li>
                                 </div>
                                 <div className="w-full mx-auto my-3 border divide-dotted"></div>
                             </> : <>
