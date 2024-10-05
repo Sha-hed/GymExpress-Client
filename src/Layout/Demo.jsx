@@ -1,20 +1,28 @@
 import { FaBalanceScale, FaComment, FaForumbee, FaHome, FaNewspaper, FaRegComment, FaSplotch, FaTrailer, FaTrain } from "react-icons/fa";
 import { FaClapperboard, FaEarthAmericas, FaPersonRifle } from "react-icons/fa6";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { IoPersonAdd } from "react-icons/io5";
+import { IoNewspaperOutline } from "react-icons/io5";
+import { MdAddComment } from "react-icons/md";
+import { FaAddressBook } from "react-icons/fa";
 import useAuth from "../Hooks/useAuth";
-import useAdmin from "../Hooks/useAdmin";
-import useTrainer from "../Hooks/useTrainer";
 import { RiLogoutBoxFill } from "react-icons/ri";
+import { FaUsersGear } from "react-icons/fa6";
 import toast from "react-hot-toast";
 import IsAdmin from "../Hooks/IsAdmin";
 import IsTrainer from "../Hooks/IsTrainer";
-
-
+import { CgProfile } from "react-icons/cg";
+import { MdManageAccounts } from "react-icons/md";
+import { MdAddToPhotos } from "react-icons/md";
+import { FaUserShield } from "react-icons/fa";
+import { TbGymnastics } from "react-icons/tb";
+import { FaBookReader } from "react-icons/fa";
+import { MdLibraryAddCheck } from "react-icons/md";
 const Demo = () => {
     const { user, logOut } = useAuth();
     // const [isAdmin] = useAdmin();
-    const [isAdmin, isLoading] = IsAdmin();
-    const [isTrainer, isLoadingTrainer ] = IsTrainer();
+    const [isAdmin] = IsAdmin();
+    const [isTrainer ] = IsTrainer();
     const navigate = useNavigate()
     console.log('Trainer Checking Man ', isTrainer)
     const handleLogOut = () => {
@@ -36,64 +44,65 @@ const Demo = () => {
                                 <img className="rounded-full border-4 p-1" src={user?.photoURL} alt="" />
                             </div>
                             <h1 className="uppercase text-2xl font-semibold ">{user?.displayName}</h1>
-                            <h1>{user?.email}</h1>
+                            <h1 className="border border-white py-1 px-3">Overview</h1>
+                            {/* <h1>{user?.email}</h1> */}
                             <div className="w-full mx-auto my-3 border"></div>
                         </div>
                         {/* Admin Part */}
                         {
                             isAdmin ? <>
-                                <div className="flex items-center gap-2 m-3">
-                                    <FaEarthAmericas className="text-xl" />
-                                    <li><NavLink to='/demo/news'>NewsLetter Subscriber</NavLink></li>
-                                </div>
                                 <div className="flex items-center gap-2 mx-3 mb-3">
-                                    <FaTrain className="text-xl" />
+                                    <FaUsersGear className="text-xl" />
                                     <li><NavLink to='/demo/allTrainer'>All Trainer</NavLink></li>
                                 </div>
                                 <div className="flex items-center gap-2 mx-3 mb-3">
-                                    <FaTrailer className="text-xl" />
+                                    <IoPersonAdd className="text-xl" />
                                     <li><NavLink to='/demo/appliedTrainer'>Applied Trainer</NavLink></li>
                                 </div>
-                                <div className="flex items-center gap-2 mx-3 mb-3">
+                                {/* <div className="flex items-center gap-2 mx-3 mb-3">
                                     <FaBalanceScale className="text-xl" />
                                     <li><NavLink to='/demo/balance'>Balance</NavLink></li>
-                                </div>
+                                    </div> */}
                                 <div className="flex items-center gap-2 mx-3 mb-3">
-                                    <FaNewspaper className="text-xl" />
+                                    <MdAddToPhotos className="text-xl" />
                                     <li><NavLink to='/demo/class'>Add New Class</NavLink></li>
                                 </div>
                                 <div className="flex items-center gap-2 mx-3 mb-3">
-                                    <FaForumbee className="text-xl" />
+                                    <MdLibraryAddCheck className="text-xl" />
                                     <li><NavLink to='/demo/forum'>Add New Blog</NavLink></li>
                                 </div>
+                                    <div className="flex items-center gap-2 m-3">
+                                        <IoNewspaperOutline className="text-xl" />
+                                        <li><NavLink to='/demo/news'>NewsLetter Subscriber</NavLink></li>
+                                    </div>
                                 <div className="w-full mx-auto my-3 border divide-dotted"></div>
 
                             </> : isTrainer ? <>
+                                <div className="flex items-center gap-2 mx-3 mb-3">
+                                    <CgProfile className="text-xl" />
+                                    <li><NavLink to='/demo/ans'>Profile</NavLink></li>
+                                </div>
                                 <div className="flex items-center gap-2 m-3">
-                                    <FaSplotch className="text-xl" />
-                                    <li><NavLink to='/demo/ms'>Manage Slot</NavLink></li>
+                                    <MdManageAccounts className="text-xl" />
+                                    <li><NavLink to='/demo/ms'>Manage Classes</NavLink></li>
                                 </div>
                                 <div className="flex items-center gap-2 mx-3 mb-3">
-                                    <FaSplotch className="text-xl" />
-                                    <li><NavLink to='/demo/ans'>Add New Slot</NavLink></li>
-                                </div>
-                                <div className="flex items-center gap-2 mx-3 mb-3">
-                                    <FaForumbee className="text-xl" />
+                                    <MdAddToPhotos className="text-xl" />
                                     <li><NavLink to='/demo/forum'>Add New Blog</NavLink></li>
                                 </div>
                                 <div className="w-full mx-auto my-3 border divide-dotted"></div>
                             </> : <>
-                                <div className="flex items-center gap-2 m-3">
+                                {/* <div className="flex items-center gap-2 m-3">
                                     <FaHome className="text-xl" />
                                     <li><NavLink to='/demo/activity'>Activity Log</NavLink></li>
-                                </div>
+                                </div> */}
                                 <div className="flex items-center gap-2 mx-3 mb-3">
-                                    <FaPersonRifle className="text-xl" />
+                                    <CgProfile className="text-xl" />
                                     <li><NavLink to='/demo/profile'>Profile</NavLink></li>
                                 </div>
                                 <div className="flex items-center gap-2 mx-3 mb-3">
-                                    <FaRegComment className="text-xl" />
-                                    <li><NavLink to='/demo/recommended'>Booked Trainer</NavLink></li>
+                                    <FaAddressBook className="text-xl" />
+                                    <li><NavLink to='/demo/recommended'>My Classes</NavLink></li>
                                 </div>
                                 <div className="w-full mx-auto my-3 border divide-dotted"></div>
                             </>
@@ -105,16 +114,16 @@ const Demo = () => {
                             <li><NavLink to='/'>Home</NavLink></li>
                         </div>
                         <div className="flex items-center gap-2 mx-3 mb-3">
-                            <FaTrain className="text-xl" />
-                            <li><NavLink to='/allTrainer'>Trainer</NavLink></li>
+                            <FaUserShield className="text-xl" />
+                            <li><NavLink to='/allTrainer'>Trainers</NavLink></li>
                         </div>
                         <div className="flex items-center gap-2 mx-3 mb-3">
-                            <FaClapperboard className="text-xl" />
+                            <TbGymnastics className="text-xl" />
                             <li><NavLink to='/allClasses'>Classes</NavLink></li>
                         </div>
                         <div className="flex items-center gap-2 mx-3 mb-3">
-                            <FaComment className="text-xl" />
-                            <li><NavLink to='/community'>Community</NavLink></li>
+                            <FaBookReader className="text-xl" />
+                            <li><NavLink to='/blogs'>Blog</NavLink></li>
                         </div>
                     </ul>
                     <div className="absolute bottom-10 left-16 flex justify-center items-center gap-2">

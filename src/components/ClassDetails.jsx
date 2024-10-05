@@ -47,7 +47,9 @@ const ClassDetails = () => {
                     <div className="flex flex-wrap gap-5 justify-center">
                         {
                             classTrainer?.map((trainer,id)=>
-                            <TrainerCardInClassDetails key={id} trainer={trainer}>
+                            <TrainerCardInClassDetails key={id}
+                            bookedClass={yourClass}
+                            trainer={trainer}>
                             </TrainerCardInClassDetails>
                             )
                         }

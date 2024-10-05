@@ -21,7 +21,7 @@ const Trainers = () => {
                 <h1 className="text-3xl font-bold underline uppercase text-red-600 text-center mb-5">Our Specialized Trainers</h1>
                 <div className="max-w-6xl mx-auto flex flex-wrap gap-x-5 gap-y-10 justify-center">
                     {
-                        trainers?.map(trainer => <TrainerCard key={trainer._id} trainer={trainer}></TrainerCard>)
+                        trainers.length>0 ? trainers?.map(trainer => <TrainerCard key={trainer._id} trainer={trainer}></TrainerCard>) : ''
                     }
                 </div>
             </div>

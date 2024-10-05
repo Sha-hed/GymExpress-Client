@@ -147,7 +147,7 @@ const BeATrainer = () => {
                             <textarea name="des" id="" rows={6} className="text-black outline-none border p-3 rounded-xl"></textarea>
                         </div>
                         <div className="flex justify-center items-center">
-                            <input type="submit" className="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mt-10 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800" type="submit" value="Apply" />
+                            <input type="submit" className="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mt-10 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800" value="Apply" />
                         </div>
                     </div>
                 </form>

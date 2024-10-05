@@ -24,9 +24,9 @@ const AddClasses = () => {
 
     return (
         <div>
-            <h1 className="text-center font-bold underline text-2xl">Add a Class</h1>
+            <h1 className="text-center font-bold underline text-2xl my-10">Add a Class</h1>
             <form onSubmit={handleSubmit}>
-                <div className="flex flex-col space-y-5 my-5 w-[800px]">
+                <div className="flex flex-col space-y-5 my-5">
                     <div className="flex justify-between gap-5">
                         <div className="w-1/2 flex flex-col space-y-3">
                             <label className="font-semibold text-xl w-full">Category</label>
@@ -46,8 +46,8 @@ const AddClasses = () => {
                         </div>
                     </div>
                     <div className="flex flex-col">
-                        <label className="font-semibold text-xl w-full my-4">Class Details</label>
-                        <textarea name="des" id="" rows={6} className="outline-none border p-3 rounded" placeholder="Write Class Details"></textarea>
+                        <label className="font-semibold text-xl w-full mb-4">Class Details</label>
+                        <textarea name="des" id="" rows={5} className="outline-none border p-3 rounded" placeholder="Write Class Details"></textarea>
                     </div>
                     <div className="w-1/2 flex flex-col space-y-3">
                         <label className="font-semibold text-xl w-full">PhotoURL</label>

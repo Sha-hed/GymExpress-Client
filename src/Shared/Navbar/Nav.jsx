@@ -13,10 +13,10 @@ const navLinks = [
     },
     {
         path: '/allTrainer',
-        title: 'Trainer'
+        title: 'Trainers'
     },
     {
-        path: '/community',
+        path: '/blogs',
         title: 'Blog'
     },
 ]

@@ -17,7 +17,6 @@ import AddNewSlot from "../Pages/Dashboard/Trainer/AddNewSlot";
 import AddNewForum from "../Pages/Dashboard/Trainer/AddNewForum";
 import Activity from '../Pages/Dashboard/User/ActivityLogPage';
 import ProfilePage from '../Pages/Dashboard/User/ProfilePage';
-import Recommended from '../Pages/Dashboard/User/Recommended';
 import AdminRoute from '../Route/AdminRoute';
 import TrainerRoute from '../Route/TrainerRoute';
 import AppliedTrainer from "../Pages/Dashboard/Admin/AppliedTrainer";
@@ -31,6 +30,8 @@ import BookTrainer from "../Pages/Dashboard/User/BookTrainer";
 import SignIn from "../Shared/Login/SignIn";
 import ClassDetails from "../components/ClassDetails";
 import TrainerDetail from "../components/TrainerDetail";
+import ReviewYourBooking from "../components/ReviewYourBooking";
+import Blogs from "../Pages/Blog/Blogs";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -40,6 +41,14 @@ export const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>
+      },
+      {
+        path: '/reviewBooking',
+        element: <ReviewYourBooking/>
+      },
+      {
+        path: '/blogs',
+        element: <Blogs/>
       },
       {
         path: '/getSingleClass/:id',
@@ -106,6 +115,10 @@ export const router = createBrowserRouter([
     element: <PrivateRoute><Demo></Demo></PrivateRoute>,
     children: [
       {
+        index:true,
+        element: <AdminRoute><AllTrainers></AllTrainers></AdminRoute>
+      },
+      {
         path: 'appliedTrainer',
         element: <AppliedTrainer></AppliedTrainer>
       },
@@ -140,6 +153,10 @@ export const router = createBrowserRouter([
       {
         path: 'activity',
         element: <PrivateRoute><Activity></Activity></PrivateRoute>
+      },
+      {
+        index:true,
+        element: <PrivateRoute><ProfilePage></ProfilePage></PrivateRoute>
       },
       {
         path: 'profile',
