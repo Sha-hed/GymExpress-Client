@@ -171,8 +171,8 @@ const Letter = () => {
           </div>
         </div>
       </div>
-      <hr className="w-[90%] mx-auto mt-10 text-gray-500 mb-5" />
-      <h1 className="mx-20 text-[#808080] font-bold text-lg px-10">GymExpress &copy; 2024. All rights reserved.</h1>
+      {/* <hr className="w-[90%] mx-auto mt-10 text-gray-500 mb-5" />
+      <h1 className="mx-20 text-[#808080] font-bold text-lg px-10">GymExpress &copy; 2024. All rights reserved.</h1> */}
     </div>
   );
 };

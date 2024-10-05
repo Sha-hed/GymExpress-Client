@@ -16,7 +16,7 @@ const Trainers = () => {
     })
     // console.log(trainers)
     return (
-        <div className="min-h-screen bg-black py-20">
+        <div className="min-h-screen bg-black pt-20">
             <div className="bg-[#424242] py-10">
                 <h1 className="text-3xl font-bold underline uppercase text-red-600 text-center mb-5">Our Specialized Trainers</h1>
                 <div className="max-w-6xl mx-auto flex flex-wrap gap-x-5 gap-y-10 justify-center">

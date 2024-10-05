@@ -30,7 +30,7 @@ const ClassDetails = () => {
     console.log('Class Trainer ',classTrainer)
 
     return (
-        <div className="bg-black py-24 text-white">
+        <div className="bg-black pt-24 text-white">
             <div className="bg-[#2C2C2C] py-10 min-h-screen relative">
                 <div className="relative max-w-6xl mx-auto">
                     <img src={photoURL} alt="" />

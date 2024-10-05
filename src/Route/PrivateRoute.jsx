@@ -12,7 +12,11 @@ const PrivateRoute = ({ children }) => {
     const location = useLocation();
 
     if (loading || isLoading) {
-        return <div className="w-32 h-32 rounded-full bg-gray-300 animate-pulse"></div>
+        return <div className="w-full h-screen border-2 border-red-600 flex justify-center items-center">
+            <div className="w-32 h-32 rounded-full bg-gray-300 animate-pulse">
+
+            </div>
+        </div>
     }
     if (user) {
         return children;

@@ -51,7 +51,7 @@ const TrainerDetail = () => {
         //         </div>
         //     </div>
         // </div>
-        <div className="bg-black py-24 text-white">
+        <div className="bg-black pt-24 text-white">
             <div className="bg-[#2C2C2C] py-10 min-h-screen">
                 <div className="max-w-7xl mx-auto flex">
                     <div className="w-1/2">
