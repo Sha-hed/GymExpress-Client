@@ -31,6 +31,7 @@ import Blogs from "../Pages/Blog/Blogs";
 import AddNewBlog from "../Pages/Dashboard/Trainer/AddNewBlog";
 import BookedClasses from "../Pages/Dashboard/Trainer/BookedClasses";
 import MyProfile from "../Pages/Dashboard/Trainer/MyProfile";
+import AddReview from "../Pages/Dashboard/User/AddReview";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -144,6 +145,10 @@ export const router = createBrowserRouter([
       {
         path: 'myProfile',
         element: <MyProfile />
+      },
+      {
+        path: 'addReview',
+        element: <AddReview/>
       },
       {
         path: 'activity',

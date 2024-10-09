@@ -15,10 +15,10 @@ const navLinks = [
         path: '/allTrainer',
         title: 'Trainers'
     },
-    {
-        path: '/blogs',
-        title: 'Contacts'
-    },
+    // {
+    //     path: '/blogs',
+    //     title: 'Contacts'
+    // },
 ]
 
 

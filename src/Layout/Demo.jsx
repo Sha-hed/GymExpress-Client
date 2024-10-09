@@ -1,6 +1,7 @@
 import { FaBalanceScale, FaComment, FaForumbee, FaHome, FaNewspaper, FaRegComment, FaSplotch, FaTrailer, FaTrain } from "react-icons/fa";
 import { FaClapperboard, FaEarthAmericas, FaPersonRifle } from "react-icons/fa6";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { MdOutlineRateReview } from "react-icons/md";
 import { IoPersonAdd } from "react-icons/io5";
 import { IoNewspaperOutline } from "react-icons/io5";
 import { MdAddComment } from "react-icons/md";
@@ -22,7 +23,7 @@ const Demo = () => {
     const { user, logOut } = useAuth();
     // const [isAdmin] = useAdmin();
     const [isAdmin] = IsAdmin();
-    const [isTrainer ] = IsTrainer();
+    const [isTrainer] = IsTrainer();
     const navigate = useNavigate()
     console.log('Trainer Checking Man ', isTrainer)
     const handleLogOut = () => {
@@ -71,10 +72,10 @@ const Demo = () => {
                                     <MdLibraryAddCheck className="text-xl" />
                                     <li><NavLink to='/demo/addNewBlog'>Add New Blog</NavLink></li>
                                 </div>
-                                    <div className="flex items-center gap-2 m-3">
-                                        <IoNewspaperOutline className="text-xl" />
-                                        <li><NavLink to='/demo/news'>NewsLetter Subscriber</NavLink></li>
-                                    </div>
+                                <div className="flex items-center gap-2 m-3">
+                                    <IoNewspaperOutline className="text-xl" />
+                                    <li><NavLink to='/demo/news'>NewsLetter Subscriber</NavLink></li>
+                                </div>
                                 <div className="w-full mx-auto my-3 border divide-dotted"></div>
 
                             </> : isTrainer ? <>
@@ -90,6 +91,10 @@ const Demo = () => {
                                     <MdAddToPhotos className="text-xl" />
                                     <li><NavLink to='/demo/addNewBlog'>Add New Blog</NavLink></li>
                                 </div>
+                                <div className="flex items-center gap-2 mx-3 mb-3">
+                                    <MdOutlineRateReview className="text-xl" />
+                                    <li><NavLink to='/demo/addReview'>Add Review</NavLink></li>
+                                </div>
                                 <div className="w-full mx-auto my-3 border divide-dotted"></div>
                             </> : <>
                                 {/* <div className="flex items-center gap-2 m-3">
@@ -103,6 +108,10 @@ const Demo = () => {
                                 <div className="flex items-center gap-2 mx-3 mb-3">
                                     <FaAddressBook className="text-xl" />
                                     <li><NavLink to='/demo/recommended'>My Classes</NavLink></li>
+                                </div>
+                                <div className="flex items-center gap-2 mx-3 mb-3">
+                                    <MdOutlineRateReview className="text-xl" />
+                                    <li><NavLink to='/demo/addReview'>Add Review</NavLink></li>
                                 </div>
                                 <div className="w-full mx-auto my-3 border divide-dotted"></div>
                             </>
@@ -121,10 +130,10 @@ const Demo = () => {
                             <TbGymnastics className="text-xl" />
                             <li><NavLink to='/allClasses'>Classes</NavLink></li>
                         </div>
-                        <div className="flex items-center gap-2 mx-3 mb-3">
+                        {/* <div className="flex items-center gap-2 mx-3 mb-3">
                             <FaBookReader className="text-xl" />
                             <li><NavLink to='/blogs'>Blog</NavLink></li>
-                        </div>
+                        </div> */}
                     </ul>
                     <div className="absolute bottom-10 left-16 flex justify-center items-center gap-2">
                         <RiLogoutBoxFill className="text-white text-xl" />
