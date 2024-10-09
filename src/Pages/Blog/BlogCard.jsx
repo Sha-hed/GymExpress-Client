@@ -3,7 +3,7 @@
 const BlogCard = ({ blog }) => {
     const { category, title, photoURL } = blog
     return (
-        <div className="flex flex-col text-white cursor-pointer">
+        <div className="flex flex-col text-white cursor-pointer mx-auto">
             <div className="w-72">
                 <img src={photoURL} alt="" />
             </div>

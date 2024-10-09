@@ -33,15 +33,15 @@ const BeaTrainer = () => {
                     </div>
                 </div>
             </div>
-            <div className=' text-white relative bg-[#1E1E1E] p-20'>
-                <div className='w-[50%]'>
+            <div className='text-white relative bg-[#1E1E1E] p-5 md:p-20'>
+                <div className='w-full md:w-[50%]'>
                     <img className='object-cover' src={apply} alt="" />
                 </div>
-                <div className='absolute top-[20%] left-1/3'>
-                    <h1 className='text-5xl font-bold text-center'>Join Our Team of Professional <br /> Gym Instructors</h1>
+                <div className='relative md:absolute md:top-[20%] md:left-1/3 my-5 md:my-0'>
+                    <h1 className='text-sm md:text-5xl font-bold text-center'>Join Our Team of Professional <br /> Gym Instructors</h1>
                 </div>
-                <div className='w-[400px] absolute top-[40%] right-[250px]'>
-                    <p className='text-xl'>Interested in becoming a gym instructor? Join our team and help others achieve their fitness goals! We're looking for passionate individuals who are ready to inspire and lead. Whether you're an experienced trainer or just starting out, apply today and be part of a motivating and supportive fitness community!</p>
+                <div className='w-full md:w-[400px] md:absolute md:top-[40%] md:right-[250px]'>
+                    <p className='text-sm md:text-xl'>Interested in becoming a gym instructor? Join our team and help others achieve their fitness goals! We're looking for passionate individuals who are ready to inspire and lead. Whether you're an experienced trainer or just starting out, apply today and be part of a motivating and supportive fitness community!</p>
                     <div className="flex justify-center">
                         <button onClick={applyTrainer} type="button" className="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 my-10 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">Apply to Be a Gym Instructor</button>
                     </div>

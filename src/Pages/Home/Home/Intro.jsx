@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 const Intro = () => {
     return (
         <div className="text-white bg-[#1E1E1E]">
-            <div className='max-w-7xl mx-auto flex gap-32 p-10 '>
-                <div className='w-[500px]'>
+            <div className='w-full md:max-w-7xl mx-auto flex flex-col md:flex-row gap-8 md:gap-32 p-5 md:p-10'>
+                <div className='w-full md:w-[500px]'>
                     <img src={GymIntro} alt="" />
                 </div>
-                <div className='w-[510px]'>
-                    <h1 className='text-lg font-bold uppercase text-gray-300'>welcome to the gym</h1>
-                    <h1 className='text-5xl font-bold my-5'>Forge your fitness: <br /> Gym and Crossfit <br /> Adventures</h1>
+                <div className='w-full md:w-[510px]'>
+                    <h1 className='text-center md:text-start  font-bold uppercase text-gray-300'>welcome to the gym</h1>
+                    <h1 className='text-xl md:text-5xl text-center md:text-start font-bold my-5'>Forge your fitness: <br /> Gym and Crossfit <br /> Adventures</h1>
                     <p className='text-gray-300'>GymExpress offers a simple and efficient way to explore and book gym classes, making it easier for you to stay committed to your fitness routine.</p>
                     <div className='flex justify-center'>
                         <Link to='/allClasses' className="mt-5 text-gray-900 bg-white hover:bg-gray-100  focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-800 dark:bg-white dark:border-gray-700 dark:text-gray-900 dark:hover:bg-gray-200 me-2 mb-2">
@@ -18,7 +18,7 @@ const Intro = () => {
                             Browse Classes
                         </Link>
                     </div>
-                    <div className='w-[500px] mt-5'>
+                    <div className='w-full md:w-[500px] mt-5'>
                         <img src={GymIntro22} alt="" />
                     </div>
                 </div>

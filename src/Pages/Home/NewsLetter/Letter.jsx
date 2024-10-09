@@ -33,16 +33,16 @@ const Letter = () => {
     }
 }
   return (
-    <div className="bg-[#1E1E1E] py-16 text-white">
-      <div className="flex justify-between mx-20 mb-5">
-        <div className="w-1/2 px-10 space-y-3">
-          <div className="mb-32">
+    <div className="bg-[#1E1E1E] py-5 md:py-16 text-white">
+      <div className="flex flex-col md:flex-row justify-between mx-1 md:mx-20 mb-5">
+        <div className="w-full md:w-1/2 px-2 md:px-10 space-y-3">
+          <div className="mb-10 md:mb-32">
             <img src={GymLogo} alt="" />
           </div>
           <div className="mb-10">
             <h1 className="text-white font-bold text-2xl">NewsLetter SignUp</h1>
           </div>
-          <div className="flex justify-between">
+          <div className="flex flex-col md:flex-row justify-between">
             <div className="flex items-center gap-2 mt-5">
               <MdDriveFileRenameOutline />
               <input
@@ -63,9 +63,6 @@ const Letter = () => {
                 className="bg-transparent outline-none"
               />
             </div>
-            {/* <div className="my-5">
-              <FaArrowRight className="text-white font-bold text-xl" />
-            </div> */}
           </div>
           <hr className="mb-5" />
           <div className="my-5">
@@ -82,8 +79,8 @@ const Letter = () => {
             <button onClick={handleSub} type="button" className="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 my-5 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">Subscribe</button>
           </div>
         </div>
-        <div className="w-1/2 px-10">
-          <h1 className="text-5xl font-bold">
+        <div className="w-full md:w-1/2 px-5 md:px-10">
+          <h1 className="text-xl md:text-5xl font-bold text-center md:text-start">
             Transform your body, transform your life
           </h1>
           <div className="flex justify-between">

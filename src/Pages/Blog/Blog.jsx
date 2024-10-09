@@ -9,7 +9,6 @@ import './Blog.css'
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
-import { Helmet } from "react-helmet-async";
 
 const Blog = () => {
 
@@ -21,24 +20,12 @@ const Blog = () => {
             return data;
         }
     })
-    console.log('Blog Ashche kina dektesi ', blog)
 
     return (
         <div className="text-white bg-[#0e0e0e] py-32">
-            {/* <Helmet>
-                <title>GymExpress | Blogs </title>
-            </Helmet> */}
-            <h1 className="text-center font-bold uppercase my-5 text-gray-200">our blog </h1>
-            <h1 className="text-center font-bold text-5xl mb-10">Latest new & updates</h1>
-            {/* <div className="flex justify-center items-center my-10">
-                <button className="p-3 bg-sky-400 rounded-xl">VerifyMeeee</button>
-            </div> */}
-            {/* <div>
-                {
-                    blog?.map((blog,id)=><BlogCard key={id} blog={blog}></BlogCard>)
-                }
-            </div> */}
-            <div className="max-w-7xl mx-auto">
+            <h1 className="text-sm md:text-[16px] text-center font-bold uppercase my-5 text-gray-200">our blog </h1>
+            <h1 className="text-center font-bold text-lg md:text-5xl mb-10">Latest new & updates</h1>
+            <div className="max-w-7xl mx-auto px-10 md:px-0">
                 <Swiper
                     slidesPerView={4}
                     spaceBetween={30}
@@ -53,26 +40,35 @@ const Blog = () => {
                         disableOnInteraction: false, // Keeps autoplay running after user interaction
                     }}
                     loop={true}
+                    breakpoints={{
+                        // When the viewport width is <= 640px (mobile)
+                        320: {
+                            slidesPerView: 1, // 1 slide per view on mobile
+                            spaceBetween: 20, // Adjust space between slides if necessary
+                        },
+                        // When the viewport width is <= 768px (tablet)
+                        768: {
+                            slidesPerView: 2, // 2 slides per view on tablet
+                            spaceBetween: 30,
+                        },
+                        // When the viewport width is <= 1024px (small desktops)
+                        1024: {
+                            slidesPerView: 3, // 3 slides per view on small desktops
+                            spaceBetween: 30,
+                        },
+                        1100: {
+                            slidesPerView: 4, // 3 slides per view on small desktops
+                            spaceBetween: 30,   
+                        }
+                    }}
                     modules={[FreeMode, Pagination, Autoplay]}
                     className="mySwiper h-[350px]"
                 >
-
                     {
                         blog?.map((blog, id) => <SwiperSlide key={id}>
                             <BlogCard blog={blog}></BlogCard>
                         </SwiperSlide>)
                     }
-
-
-                    {/* <SwiperSlide>Slide 1</SwiperSlide>
-                    <SwiperSlide>Slide 2</SwiperSlide>
-                    <SwiperSlide>Slide 3</SwiperSlide>
-                    <SwiperSlide>Slide 4</SwiperSlide>
-                    <SwiperSlide>Slide 5</SwiperSlide>
-                    <SwiperSlide>Slide 6</SwiperSlide>
-                    <SwiperSlide>Slide 7</SwiperSlide>
-                    <SwiperSlide>Slide 8</SwiperSlide>
-                    <SwiperSlide>Slide 9</SwiperSlide> */}
                 </Swiper>
             </div>
         </div>

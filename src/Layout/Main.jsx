@@ -1,13 +1,13 @@
-import { Outlet} from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Nav from "../Shared/Navbar/Nav";
 import Foot from "../Shared/Footer/Foot";
 
 const Main = () => {
     return (
         <div className="bg-black">
-            <Nav/>
+            <Nav />
             <Outlet></Outlet>
-            <Foot/>
+            <Foot />
         </div>
     );
 };

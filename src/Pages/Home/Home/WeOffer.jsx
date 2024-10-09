@@ -6,15 +6,15 @@ import swim from '../../../assets/images2/swim.png'
 
 const WeOffer = () => {
   return (
-    <div className="text-white mt-20 mb-5">
-      <h1 className="uppercase text-center font-bold mb-5">What We Offer</h1>
-      <h1 className="text-center font-bold text-5xl">
+    <div className="text-white mt-5 md:mt-20 mb-5">
+      <h1 className="text-sm md:text-[16px] uppercase text-center font-bold mb-5">What We Offer</h1>
+      <h1 className="text-center font-bold md:text-5xl">
         Achieve amazing results <br /> with our services
       </h1>
-      <h1 className="flex justify-center mt-10 mb-20">
+      <h1 className="flex justify-center mt-5 md:mt-10 mb-10 md:mb-20">
         <FaAnglesDown className="text-xl" />
       </h1>
-      <div className="flex justify-center items-center mt-32 pb-32">
+      <div className="flex flex-col md:flex-row justify-center items-center mt-10 md:mt-32 pb-10 md:pb-32">
         <div
           className="relative w-[320px] h-[300px] flex flex-col justify-center items-center p-5 space-y-3
         hover:scale-105 cursor-pointer hover:bg-[#008B8B] hover:rounded-lg
