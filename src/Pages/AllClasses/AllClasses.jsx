@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import ClassCard from "../../components/ClassCard";
 import Banner from '../../assets/images2/C4.jpg'
 import useAxiosGeneral from "../../Hooks/useAxiosGeneral";
+import { Helmet } from "react-helmet-async";
 
 const AllClasses = () => {
 
@@ -41,6 +42,9 @@ const AllClasses = () => {
 
     return (
         <div className="min-h-screen text-white relative">
+            <Helmet>
+                <title>GymExpress | Classes</title>
+            </Helmet>
             <div className="relative">
                 <div className="w-full h-[600px]">
                     <img className="h-[600px] object-cover" src={Banner} alt="" />

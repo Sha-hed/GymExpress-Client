@@ -12,7 +12,6 @@ import { useQuery } from '@tanstack/react-query';
 import ReviewCard from '../../../components/ReviewCard';
 import useAxiosGeneral from '../../../Hooks/useAxiosGeneral';
 const Testimonial = () => {
-    // const axiosCommon = useAxiosCommon();
     const axiosGeneral = useAxiosGeneral()
     const { data: reviews = [] } = useQuery({
         queryKey: ['review'],

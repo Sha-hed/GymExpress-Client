@@ -5,6 +5,7 @@ import useAxiosGeneral from "../../Hooks/useAxiosGeneral"
 import toast from "react-hot-toast";
 import { updateProfile } from "firebase/auth";
 import auth from "../../firebase/firebase.config";
+import { Helmet } from "react-helmet-async";
 
 export default function SignIn() {
     const axiosGeneral = useAxiosGeneral()
@@ -88,6 +89,9 @@ export default function SignIn() {
     }
     return (
         <div className="min-h-screen py-32">
+            <Helmet>
+                <title>GymExpress | Login</title>
+            </Helmet>
             <div className="mx-auto w-full max-w-sm overflow-hidden rounded-lg border bg-white dark:border-zinc-700 dark:bg-zinc-900 text-white">
                 <div className={`flex select-none gap-2 border-b p-2.5 *:flex-1 *:rounded-md *:border *:p-2 *:text-center *:uppercase *:shadow-inner *:outline-none dark:border-zinc-700 *:dark:border-zinc-600 ${signUp ? 'last-of-type:*:bg-zinc-600 last-of-type:*:text-white' : 'first-of-type:*:bg-zinc-600 first-of-type:*:text-white'}`}>
                     <button onClick={() => setSignUp(false)}>signin</button>

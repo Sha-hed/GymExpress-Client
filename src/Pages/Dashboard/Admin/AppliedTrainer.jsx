@@ -1,31 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { FaEye } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Swal from "sweetalert2";
-import useAuth from "../../../Hooks/useAuth";
 import useAxiosPrivate from "../../../Hooks/useAxiosPrivate";
 
 
 const AppliedTrainer = () => {
-    const { loading } = useAuth();
     const axiosPrivate = useAxiosPrivate()
 
 
     const [mod, setMod] = useState(false);
-    const [reject, setReject] = useState(false);
     const [selectedTrainer, setSelectedTrainer] = useState(null);
-    const [appliedTrainer, setAppliedTrainer] = useState([])
+    // const [appliedTrainer, setAppliedTrainer] = useState([])
 
-    // const { refetch, data: appliedTrainer = [] } = useQuery({
-    //     queryKey: ['trainer'],
-    //     enabled: !loading,
-    //     queryFn: async () => {
-    //         const { data } = await axiosSecure.get('/appliedTrainer')
-    //         console.log(data);
-    //         return data;
-    //     }
-    // })
     const { data: appliedTrainers = [], refetch } = useQuery({
         queryKey: ['applied'],
         queryFn: async () => {
@@ -53,42 +40,34 @@ const AppliedTrainer = () => {
                 timer: 1500
             });
             refetch();
-            // const remainingTrainer = appliedTrainer.filter(ap => ap._id !== selectedTrainer._id)
-            // setAppliedTrainer(remainingTrainer);
             setMod(!mod)
             setSelectedTrainer('');
         }
     }
-    const handleTrainerReject = () => {
-        setMod(!mod);
-        setReject(!reject)
+    const handleTrainerReject = async () => {
+        const { data } = await axiosPrivate.delete(`/appliedTrainer/${selectedTrainer._id}`)
+        console.log(data)
+        if (data.deletedCount) {
+            Swal.fire({
+                position: "top",
+                icon: "success",
+                title: "Application Rejected",
+                showConfirmButton: false,
+                timer: 1500
+            });
+            refetch()
+            setMod(!mod);
+            selectedTrainer('')
+        }  
     }
 
     const handleConfirm = item => {
         setSelectedTrainer(item);
         setMod(!mod);
     }
-    const handleFormSubmit = async (e) => {
-        e.preventDefault();
-        const feedback = e.target.feedback.value;
-        selectedTrainer.feedback = feedback
-        selectedTrainer.status = 'rejected'
-        const { data } = await axiosSecure.post('/rejectTrainer', selectedTrainer)
-        if (data.addToReject.insertedId) {
-            Swal.fire({
-                position: "top",
-                icon: "success",
-                title: "Trainer Application Rejected",
-                showConfirmButton: false,
-                timer: 1500
-            });
-            const remainingTrainer = appliedTrainer.filter(ap => ap._id !== selectedTrainer._id)
-            setAppliedTrainer(remainingTrainer);
-            // refetch();
-            setReject(!reject)
-            setSelectedTrainer('');
-        }
-        console.log(data);
+    const handleClose = () => {
+        setSelectedTrainer('');
+        setMod(!mod);
     }
     return (
         <div>
@@ -97,7 +76,10 @@ const AppliedTrainer = () => {
                     <div className="absolute z-10 top-1/4 left-1/3 w-[500px] h-[350px] bg-gray-100 shadow-2xl ">
                         {
                             selectedTrainer && <div className="p-5 rounded-2xl">
-                                <h1 className="text-xl font-semibold underline text-center mb-5">Trainer Information</h1>
+                                <div className="flex justify-between">
+                                    <h1 className="text-xl font-semibold underline text-center mb-5">Trainer Information</h1>
+                                    <button onClick={handleClose} className="bg-red-600 px-3 text-white">X</button>
+                                </div>
                                 <div className="flex flex-col space-y-3">
                                     <div className="w-14 rounded-full">
                                         <img className="rounded-full" src={selectedTrainer?.photo} alt="" />
@@ -116,34 +98,9 @@ const AppliedTrainer = () => {
                     </div>
                 )
             }
-            {
-                reject && (
-                    <div className="absolute z-10 top-1/4 left-1/3 w-[500px] h-[400px] bg-gray-100 shadow-2xl ">
-                        {
-                            selectedTrainer && <div className="p-5 rounded-2xl">
-                                <h1 className="text-xl font-semibold underline text-center mb-5">Give Feedback</h1>
-                                <div className="flex flex-col space-y-3">
-                                    <div className="w-14 rounded-full">
-                                        <img className="rounded-full" src={selectedTrainer?.photo} alt="" />
-                                    </div>
-                                    <h1>Name : {selectedTrainer.name}</h1>
-                                    <h1>Email : {selectedTrainer.email}</h1>
-                                    <form onSubmit={handleFormSubmit}>
-                                        <label className="font-semibold text-xl underline">Give Feedback</label> <br />
-                                        <textarea className="w-full p-2 border my-2" placeholder="write some feedback" rows={5} name="feedback" id=""></textarea>
-                                        <div className="flex justify-center items-center">
-                                            <input type="submit" value="Submit" className="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" />
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        }
-                    </div>
-                )
-            }
             <div>
                 <h1 className="text-center font-bold underline text-2xl">Applied Trainer</h1>
-                <div className={`w-full overflow-x-auto my-10 ${mod || reject ? 'opacity-30' : ''}`}>
+                <div className={`w-full overflow-x-auto my-10 ${mod ? 'opacity-30' : ''}`}>
                     <table className="w-full text-left border border-collapse rounded sm:border-separate border-slate-200">
                         <tbody className="text-center">
                             <tr>

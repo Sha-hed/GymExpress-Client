@@ -1,20 +1,19 @@
 import BannerImage from '../../../assets/images2/B1.jpg'
-import About from '../About/About';
-import Featured from '../Featured/Featured';
-import NewsLetter from '../NewsLetter/NewsLetter';
 import Letter from '../NewsLetter/Letter';
-import Team from '../Team/Team';
 import Testimonial from '../TestiMonial/Testimonial';
 import './Home.css'
-import { Link } from "react-router-dom";
 import WeOffer from './WeOffer';
 import Marque from '../NewsLetter/Marque';
 import BeaTrainer from '../Featured/BeaTrainer';
 import Blog from '../../Blog/Blog';
 import Intro from './Intro';
+import { Helmet } from 'react-helmet-async';
 const Home = () => {
     return (
         <div>
+            <Helmet>
+                <title>GymExpress | Home</title>
+            </Helmet>
             <div className=''>
                 <img className='' src={BannerImage} alt="" />
             </div>

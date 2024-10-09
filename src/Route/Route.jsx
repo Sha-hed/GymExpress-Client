@@ -2,10 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home/Home";
 import AllClasses from "../Pages/AllClasses/AllClasses";
-import Community from "../Pages/Community/Community";
 import ErrorPage from "../Pages/ErrorElement/ErrorPage";
-import Register from "../Shared/Register/Register";
-import Login from "../Shared/Login/Login";
 import PrivateRoute from '../Route/PrivateRoute'
 import Demo from "../Layout/Demo";
 import NewsLetter from "../Pages/Dashboard/Admin/NewsLetter";
@@ -14,14 +11,11 @@ import AddClasses from "../Pages/Dashboard/Admin/AddClasses";
 import Activity from '../Pages/Dashboard/User/ActivityLogPage';
 import ProfilePage from '../Pages/Dashboard/User/ProfilePage';
 import AdminRoute from '../Route/AdminRoute';
-import TrainerRoute from '../Route/TrainerRoute';
 import AppliedTrainer from "../Pages/Dashboard/Admin/AppliedTrainer";
 import Trainers from "../Pages/AllTrainer/Trainers";
 // import TrainerDetails from "../Pages/AllTrainer/TrainerDetails";
 import BeATrainer from '../Pages/AllTrainer/BeATrainer';
 import TrainerBookedPage from "../Pages/AllTrainer/TrainerBookedPage";
-import Payment from "../Pages/Payment/Payment";
-import ForumDetails from "../Pages/Community/ForumDetails";
 import BookTrainer from "../Pages/Dashboard/User/BookTrainer";
 import SignIn from "../Shared/Login/SignIn";
 import ClassDetails from "../components/ClassDetails";
@@ -52,7 +46,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/getSingleClass/:id',
-        element: <ClassDetails />,
+        element: <PrivateRoute><ClassDetails /></PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/getClass/${params.id}`)
 
       },
@@ -79,18 +73,6 @@ export const router = createBrowserRouter([
         element: <AllClasses></AllClasses>
       },
       {
-        path: '/community',
-        element: <Community></Community>
-      },
-      {
-        path: '/register',
-        element: <Register></Register>
-      },
-      {
-        path: '/login',
-        element: <Login></Login>
-      },
-      {
         path: '/signin',
         element: <SignIn />
       },
@@ -98,16 +80,7 @@ export const router = createBrowserRouter([
         path: '/trainerBookedPage/:id',
         element: <PrivateRoute><TrainerBookedPage></TrainerBookedPage></PrivateRoute>,
         loader: ({ params }) => fetch(` http://localhost:5000/trainers/${params.id}`)
-      },
-      {
-        path: '/forumDetails/:id',
-        element: <PrivateRoute><ForumDetails></ForumDetails></PrivateRoute>,
-        loader: ({ params }) => fetch(` http://localhost:5000/forum/${params.id}`)
-      },
-      {
-        path: '/payment',
-        element: <Payment></Payment>
-      },
+      }
     ]
   },
   {
@@ -136,7 +109,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'manageClasses',
-        element: <TrainerRoute><BookedClasses></BookedClasses></TrainerRoute>
+        element: <BookedClasses></BookedClasses>
       },
       {
         path: 'addNewBlog',
@@ -148,7 +121,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'addReview',
-        element: <AddReview/>
+        element: <AddReview />
       },
       {
         path: 'activity',

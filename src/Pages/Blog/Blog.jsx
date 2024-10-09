@@ -9,6 +9,7 @@ import './Blog.css'
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
+import { Helmet } from "react-helmet-async";
 
 const Blog = () => {
 
@@ -24,6 +25,9 @@ const Blog = () => {
 
     return (
         <div className="text-white bg-[#0e0e0e] py-32">
+            {/* <Helmet>
+                <title>GymExpress | Blogs </title>
+            </Helmet> */}
             <h1 className="text-center font-bold uppercase my-5 text-gray-200">our blog </h1>
             <h1 className="text-center font-bold text-5xl mb-10">Latest new & updates</h1>
             {/* <div className="flex justify-center items-center my-10">

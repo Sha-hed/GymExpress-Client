@@ -1,10 +1,8 @@
-import { FaBalanceScale, FaComment, FaForumbee, FaHome, FaNewspaper, FaRegComment, FaSplotch, FaTrailer, FaTrain } from "react-icons/fa";
-import { FaClapperboard, FaEarthAmericas, FaPersonRifle } from "react-icons/fa6";
+import {  FaHome } from "react-icons/fa";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { MdOutlineRateReview } from "react-icons/md";
 import { IoPersonAdd } from "react-icons/io5";
 import { IoNewspaperOutline } from "react-icons/io5";
-import { MdAddComment } from "react-icons/md";
 import { FaAddressBook } from "react-icons/fa";
 import useAuth from "../Hooks/useAuth";
 import { RiLogoutBoxFill } from "react-icons/ri";
@@ -17,8 +15,8 @@ import { MdManageAccounts } from "react-icons/md";
 import { MdAddToPhotos } from "react-icons/md";
 import { FaUserShield } from "react-icons/fa";
 import { TbGymnastics } from "react-icons/tb";
-import { FaBookReader } from "react-icons/fa";
 import { MdLibraryAddCheck } from "react-icons/md";
+import { Helmet } from "react-helmet-async";
 const Demo = () => {
     const { user, logOut } = useAuth();
     // const [isAdmin] = useAdmin();
@@ -37,6 +35,9 @@ const Demo = () => {
 
     return (
         <div className="bg-[#1E1E1E]">
+            <Helmet>
+                <title>GymExpress | Dashboard</title>
+            </Helmet>
             <div className="max-w-7xl mx-auto flex text-white relative">
                 <div className="w-[300px] min-h-screen bg-[#333333]">
                     <ul>
