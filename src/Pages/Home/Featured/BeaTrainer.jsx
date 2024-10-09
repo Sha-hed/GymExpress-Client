@@ -33,7 +33,7 @@ const BeaTrainer = () => {
                     </div>
                 </div>
             </div>
-            <div className='mt-20 text-white relative bg-[#1E1E1E] p-20'>
+            <div className=' text-white relative bg-[#1E1E1E] p-20'>
                 <div className='w-[50%]'>
                     <img className='object-cover' src={apply} alt="" />
                 </div>

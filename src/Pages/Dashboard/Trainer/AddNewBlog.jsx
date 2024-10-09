@@ -11,8 +11,8 @@ const AddNewBlog = () => {
         const title = e.target.title.value;
         const details = e.target.details.value;
         const photoURL = e.target.photoURL.value;
-        const blog = { category, title, details, photoURL}
-        const { data } = await axiosPrivate.post('/add-forum', blog)
+        const blog = { category, title, details, photoURL }
+        const { data } = await axiosPrivate.post('/blog', blog)
         if (data.insertedId) {
             Swal.fire({
                 position: "top",
@@ -21,8 +21,9 @@ const AddNewBlog = () => {
                 showConfirmButton: false,
                 timer: 1500
             });
+            e.target.reset()
         }
-        console.log(blog)
+        console.log(data)
     }
     return (
         <div>
@@ -51,7 +52,7 @@ const AddNewBlog = () => {
                 </div>
                 <div className="w-[49%] flex flex-col space-y-3 mt-3">
                     <label className="font-semibold text-xl w-full">Image URL</label>
-                    <input className="p-3 border outline-none w-full" type="text" name="photoURL" id="" placeholder="Enter Blog ImageURL"/>
+                    <input className="p-3 border outline-none w-full" type="text" name="photoURL" id="" placeholder="Enter Blog ImageURL" />
                 </div>
                 <div className="text-center mt-7">
                     <button type="submit" className="w-[200px] mt-5 text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800">Add Blog</button>

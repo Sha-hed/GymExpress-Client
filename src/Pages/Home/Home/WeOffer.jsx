@@ -14,7 +14,7 @@ const WeOffer = () => {
       <h1 className="flex justify-center mt-10 mb-20">
         <FaAnglesDown className="text-xl" />
       </h1>
-      <div className="flex justify-center items-center mt-32">
+      <div className="flex justify-center items-center mt-32 pb-32">
         <div
           className="relative w-[320px] h-[300px] flex flex-col justify-center items-center p-5 space-y-3
         hover:scale-105 cursor-pointer hover:bg-[#008B8B] hover:rounded-lg

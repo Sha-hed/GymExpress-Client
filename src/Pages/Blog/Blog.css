@@ -1,0 +1,21 @@
+/* Default bullet color */
+.swiper-pagination-bullet {
+    background-color: #ccc;
+    /* Change to your desired default color */
+}
+
+/* Active bullet color */
+.swiper-pagination-bullet-active {
+    background-color: #f00;
+    /* Change to your desired active color */
+}
+
+.custom-bullet {
+    background-color: #ccc;
+    /* Default bullet color */
+}
+
+.custom-active-bullet {
+    background-color: red;
+    /* Active bullet color */
+}

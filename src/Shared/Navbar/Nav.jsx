@@ -17,14 +17,14 @@ const navLinks = [
     },
     {
         path: '/blogs',
-        title: 'Blog'
+        title: 'Contacts'
     },
 ]
 
 
 const Nav = () => {
     const [showNavbar, setShowNavbar] = useState(false);
-    const { user} = useAuth();
+    const { user } = useAuth();
     const location = useLocation();
 
     const handleScroll = () => {
