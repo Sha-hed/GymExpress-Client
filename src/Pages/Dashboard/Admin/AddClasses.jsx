@@ -49,7 +49,7 @@ const AddClasses = () => {
                         <label className="font-semibold text-xl w-full mb-4">Class Details</label>
                         <textarea name="des" id="" rows={5} className="outline-none border p-3 rounded" placeholder="Write Class Details"></textarea>
                     </div>
-                    <div className="w-1/2 flex flex-col space-y-3">
+                    <div className="w-full md:w-1/2 flex flex-col space-y-3">
                         <label className="font-semibold text-xl w-full">PhotoURL</label>
                         <input className="p-3 border outline-none w-full rounded" type="text" name="image" id="" placeholder="Add PhotoURL" />
                     </div>

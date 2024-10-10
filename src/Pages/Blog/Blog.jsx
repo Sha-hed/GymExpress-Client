@@ -22,10 +22,10 @@ const Blog = () => {
     })
 
     return (
-        <div className="text-white bg-[#0e0e0e] py-32">
+        <div className="text-white bg-[#0e0e0e] py-5 md:py-32">
             <h1 className="text-sm md:text-[16px] text-center font-bold uppercase my-5 text-gray-200">our blog </h1>
             <h1 className="text-center font-bold text-lg md:text-5xl mb-10">Latest new & updates</h1>
-            <div className="max-w-7xl mx-auto px-10 md:px-0">
+            <div className="w-full md:max-w-7xl mx-auto px-10 md:px-0">
                 <Swiper
                     slidesPerView={4}
                     spaceBetween={30}

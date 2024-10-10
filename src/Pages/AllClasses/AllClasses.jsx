@@ -46,15 +46,15 @@ const AllClasses = () => {
                 <title>GymExpress | Classes</title>
             </Helmet>
             <div className="relative">
-                <div className="w-full h-[600px]">
-                    <img className="h-[600px] object-cover" src={Banner} alt="" />
+                <div className="w-full">
+                    <img className="" src={Banner} alt="" />
                 </div>
-                <div className="absolute top-1/2 right-[100px]">
-                    <h1 className="text-5xl font-bold">Explore Our Classes <br /> Find Your Perfect Fit!</h1>
+                <div className="absolute top-[100px] md:top-1/2 right-[10px] md:right-[100px]">
+                    <h1 className="text-sm md:text-5xl font-bold">Explore Our Classes <br /> Find Your Perfect Fit!</h1>
                 </div>
             </div>
-            <h1 className="text-white text-center uppercase font-bold text-5xl my-10 underline">All Classes</h1>
-            <div className="max-w-7xl mx-auto grid grid-cols-3 gap-5 mt-10 pb-10">
+            <h1 className="text-white text-center uppercase font-bold md:text-5xl my-10 underline">All Classes</h1>
+            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 pb-10">
                 {
                     classes?.map(cc => <ClassCard key={cc?._id} cc={cc}></ClassCard>)
                 }

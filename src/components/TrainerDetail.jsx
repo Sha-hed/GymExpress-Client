@@ -53,19 +53,19 @@ const TrainerDetail = () => {
         // </div>
         <div className="bg-black pt-24 text-white">
             <div className="bg-[#2C2C2C] py-10 min-h-screen">
-                <div className="max-w-7xl mx-auto flex">
-                    <div className="w-1/2">
+                <div className="max-w-7xl mx-auto flex flex-col md:flex-row px-5 md:px-0">
+                    <div className="w-full md:w-1/2">
                         <img src={photo} alt="" />
                     </div>
-                    <div className="w-1/3 space-y-2">
-                        <h1 className="text-5xl font-bold mt-5 -translate-x-40 text-[#FFD700]">{name}</h1>
+                    <div className="w-full md:w-1/3 space-y-2">
+                        <h1 className="text-xl md:text-5xl font-bold mt-5 md:-translate-x-40 text-[#FFD700]">{name}</h1>
                         <p>Age: {age}years</p>
                         <h1>{experience} years of experience</h1>
                         <p>{description}</p>
                     </div>
                 </div>
-                <div className="max-w-7xl mx-auto">
-                    <h1 className="underline text-2xl font-bold my-10">Classes Taken by {name} :</h1>
+                <div className="max-w-7xl mx-auto px-5 md:px-0">
+                    <h1 className="underline text-lg md:text-2xl font-bold my-10">Classes Taken by {name} :</h1>
                     <div className="flex flex-wrap gap-5 justify-center">
                         {
                             hisClass?.map((classes, id) =>

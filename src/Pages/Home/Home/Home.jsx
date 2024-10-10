@@ -25,9 +25,7 @@ const Home = () => {
             <Marque />
             <BeaTrainer />
             <Blog />
-            <div className='hidden md:block'>
-                <Testimonial ></Testimonial>
-            </div>
+            <Testimonial ></Testimonial>
             <Marque />
             <Letter />
         </div>

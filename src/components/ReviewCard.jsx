@@ -19,7 +19,7 @@ const ReviewCard = ({ reviews }) => {
                         />
                     </div>
                 </div>
-                <div className='w-1/2 text-xl h-[200px]'>
+                <div className='w-full md:w-1/2 text-sm md:text-xl h-[200px]'>
                     <p>{review}</p>
                 </div>
                 <div className='w-12'>

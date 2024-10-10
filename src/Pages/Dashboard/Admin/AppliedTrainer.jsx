@@ -73,7 +73,7 @@ const AppliedTrainer = () => {
         <div>
             {
                 mod && (
-                    <div className="absolute z-10 top-1/4 left-1/3 w-[500px] h-[350px] bg-gray-100 shadow-2xl ">
+                    <div className="md:absolute z-10 md:top-1/4 md:left-1/3 w-full md:w-[550px] h-[400px] md:h-[350px] bg-gray-100 shadow-2xl ">
                         {
                             selectedTrainer && <div className="p-5 rounded-2xl">
                                 <div className="flex justify-between">
@@ -88,7 +88,7 @@ const AppliedTrainer = () => {
                                     <h1>Email : {selectedTrainer.email}</h1>
                                     <h1>Age : {selectedTrainer.age}</h1>
                                     <h1>Experience : {selectedTrainer.experience} Years</h1>
-                                    <div className="flex justify-evenly">
+                                    <div className="flex flex-col md:flex-row justify-evenly">
                                         <button onClick={handleTrainerConfirm} type="button" className="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Confirm</button>
                                         <button onClick={handleTrainerReject} type="button" className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Reject</button>
                                     </div>

@@ -59,30 +59,29 @@ const ReviewYourBooking = () => {
     return (
         <div className="bg-black pt-20 text-white">
             <div className="bg-[#2C2C2C] min-h-screen">
-
                 <div className="pb-10">
                     {/* Class Card */}
                     <div className="bg-[#2C2C2C] pt-10 min-h-screen relative">
-                        <div className="relative max-w-6xl mx-auto">
+                        <div className="relative max-w-6xl mx-auto px-5 md:px-0">
                             <h1 className="font-bold underline text-2xl mb-5">Review Your Booking</h1>
                             <img src={photoURL} alt="" />
-                            <div className="absolute top-[70px] right-[350px]">
-                                <h1 className="font-bold text-3xl text-[#FFD700]">{category}</h1>
+                            <div className="relative md:absolute md:top-[70px] md:right-[350px] mt-2 md:mt-0">
+                                <h1 className="font-bold md:text-3xl text-[#FFD700]">{category}</h1>
                             </div>
-                            <div className="absolute w-[400px] top-[130px] right-[100px] text-[#AFB2B7]">
+                            <div className="relative md:absolute w-full md:w-[400px] md:top-[130px] md:right-[100px] text-[#AFB2B7]">
                                 <h1 className="text-white text-xl font-bold">{title}</h1>
                                 <p>{description}</p>
                             </div>
                         </div>
                     </div>
                     {/* Trainer Card  */}
-                    <div className="max-w-6xl mx-auto flex">
-                        <div className="w-1/2">
+                    <div className="max-w-6xl mx-auto flex flex-col md:flex-row px-5 md:px-0 mt-10 md:mt-0">
+                        <div className="w-full md:w-1/2">
                             <img src={photo} alt="" />
                         </div>
-                        <div className="w-1/3 space-y-2">
-                            <h1 className="text-3xl font-bold mt-5 text-[#FFD700] -translate-x-36">{name}</h1>
-                            <div className="translate-x-20 text-[#AFB2B7]">
+                        <div className="w-full md:w-1/3 space-y-2">
+                            <h1 className="text-lg md:text-3xl font-bold mt-5 text-[#FFD700] md:-translate-x-36">{name}</h1>
+                            <div className="md:translate-x-20 text-[#AFB2B7]">
                                 <p>Age: {age}years</p>
                                 <h1>{experience} years of experience</h1>
                                 <p>{description}</p>

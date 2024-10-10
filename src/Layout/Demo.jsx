@@ -38,8 +38,8 @@ const Demo = () => {
             <Helmet>
                 <title>GymExpress | Dashboard</title>
             </Helmet>
-            <div className="max-w-7xl mx-auto flex text-white relative">
-                <div className="w-[300px] min-h-screen bg-[#333333]">
+            <div className="max-w-7xl mx-auto flex flex-col md:flex-row text-white relative">
+                <div className="w-full md:w-[300px] md:min-h-screen bg-[#333333] pb-3">
                     <ul>
                         <div className="flex flex-col justify-center items-center mt-10">
                             <div className="w-20 rounded-full">
@@ -136,12 +136,12 @@ const Demo = () => {
                             <li><NavLink to='/blogs'>Blog</NavLink></li>
                         </div> */}
                     </ul>
-                    <div className="absolute bottom-10 left-16 flex justify-center items-center gap-2">
+                    <div className="relative md:absolute md:bottom-10 md:left-16 flex justify-center items-center gap-2">
                         <RiLogoutBoxFill className="text-white text-xl" />
                         <button onClick={handleLogOut} className="text-lg font-semibold hover:underline">LogOut</button>
                     </div>
                 </div>
-                <div className="w-[1000px] p-8 bg-gray-200 text-black">
+                <div className="w-full md:w-[1000px] p-8 bg-gray-200 text-black">
                     <Outlet></Outlet>
                 </div>
             </div>
